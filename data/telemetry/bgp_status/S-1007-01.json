@@ -1,0 +1,23 @@
+{
+ "neighbors": [
+  {
+   "peer_ip": "10.20.0.2",
+   "peer_asn": 65010,
+   "cato_asn": 65001,
+   "state": "Established",
+   "uptime_seconds": 140,
+   "hold_time_configured": 60,
+   "keepalive_configured": 20,
+   "hold_time_negotiated": 30,
+   "peer_hold_time": 30,
+   "peer_keepalive": 10,
+   "routes_count": 1024,
+   "routes_limit": 1024,
+   "last_error": "Hold Timer Expired",
+   "flaps_24h": 11,
+   "bfd": "n/a (passive)"
+  }
+ ],
+ "site_id": "S-1007-01",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

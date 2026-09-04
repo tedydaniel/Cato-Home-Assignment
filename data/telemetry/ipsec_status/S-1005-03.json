@@ -1,0 +1,26 @@
+{
+ "peer": "Azure VPN Gateway (westeurope)",
+ "ike_version": "IKEv2",
+ "initiator": "Cato",
+ "primary": {
+  "status": "up",
+  "since": "2026-08-22T17:00:00Z"
+ },
+ "secondary": {
+  "status": "up",
+  "since": "2026-08-22T17:00:00Z"
+ },
+ "network_ranges_configured": [
+  "10.60.0.0/16"
+ ],
+ "vnet_address_spaces_reported_by_customer": [
+  "10.60.0.0/16",
+  "10.61.0.0/16 (added 2026-08-21 for AKS)"
+ ],
+ "traffic_last_hour_mbps": {
+  "to_vnet": 0.0,
+  "from_vnet": 0.0
+ },
+ "site_id": "S-1005-03",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

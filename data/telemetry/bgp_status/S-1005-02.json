@@ -1,0 +1,26 @@
+{
+ "neighbors": [
+  {
+   "peer_ip": "172.16.10.1",
+   "peer_asn": 65020,
+   "cato_asn": 65001,
+   "state": "Established",
+   "uptime_seconds": 864000,
+   "hold_time_configured": 60,
+   "keepalive_configured": 20,
+   "hold_time_negotiated": 60,
+   "routes_count": 212,
+   "routes_limit": 1024,
+   "advertised": "All routes",
+   "static_ranges_overriding": [
+    "10.40.7.0/24"
+   ],
+   "learned_prefixes_sample": [
+    "10.40.0.0/16"
+   ],
+   "flaps_24h": 0
+  }
+ ],
+ "site_id": "S-1005-02",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

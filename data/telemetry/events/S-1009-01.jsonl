@@ -1,0 +1,4 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1009-01", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-28T13:30:00Z", "site_id": "S-1009-01", "event_type": "Socket", "sub_type": "Upgrade", "action": "Started", "message": "Scheduled upgrade to 27.0.19812 started (maintenance window)"}
+{"ts": "2026-08-28T13:47:00Z", "site_id": "S-1009-01", "event_type": "Socket", "sub_type": "Upgrade", "action": "Failed", "message": "No open tunnel after grace time"}
+{"ts": "2026-08-28T13:50:00Z", "site_id": "S-1009-01", "event_type": "Connectivity", "sub_type": "Disconnected", "action": "Disconnected", "message": "Tunnel to PoP disconnected for more than 2.5 minutes", "link": "WAN1"}

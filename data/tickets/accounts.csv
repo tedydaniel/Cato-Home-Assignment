@@ -1,0 +1,13 @@
+customer_id,company,tier,email_domain,registered_admin_contact
+ACC-1001,Northwind Logistics,Premium,northwind-logistics.com,netops@northwind-logistics.com
+ACC-1002,Bluebird Retail,Standard,bluebirdretail.com,it-admin@bluebirdretail.com
+ACC-1003,Helios Pharma,Premium,heliospharma.com,network.team@heliospharma.com
+ACC-1004,Ironclad Manufacturing,Standard,ironclad-mfg.com,infra@ironclad-mfg.com
+ACC-1005,Quartz Financial,Premium,quartzfin.com,secops@quartzfin.com
+ACC-1006,Verdant Foods,Standard,verdantfoods.com,it@verdantfoods.com
+ACC-1007,Atlas Engineering,Standard,atlas-eng.com,sysadmin@atlas-eng.com
+ACC-1008,Solstice Media,Standard,solsticemedia.com,netadmin@solsticemedia.com
+ACC-1009,Pinnacle Health,Premium,pinnaclehealth.org,network-ops@pinnaclehealth.org
+ACC-1010,Cobalt Mining Co,Standard,cobaltmining.co,it.support@cobaltmining.co
+ACC-1011,Meridian Airlines,Premium,meridian-air.com,noc@meridian-air.com
+ACC-1012,Lakeside Insurance,Standard,lakesideins.com,it-ops@lakesideins.com

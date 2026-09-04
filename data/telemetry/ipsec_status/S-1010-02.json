@@ -1,0 +1,17 @@
+{
+ "peer": "Fortigate 100F (datacenter)",
+ "ike_version": "IKEv2",
+ "initiator": "Cato",
+ "primary": {
+  "status": "down",
+  "last_error": "AUTHENTICATION_FAILED"
+ },
+ "secondary": {
+  "status": "down",
+  "last_error": "AUTHENTICATION_FAILED"
+ },
+ "psk_last_changed": "2026-08-27T15:00:00Z",
+ "note": "PSK re-entered on Cato side 26 hours ago",
+ "site_id": "S-1010-02",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

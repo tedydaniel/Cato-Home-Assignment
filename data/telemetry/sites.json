@@ -1,0 +1,444 @@
+{
+ "generated_at": "2026-08-28T17:00:00Z",
+ "sites": [
+  {
+   "site_id": "S-1001-01",
+   "customer_id": "ACC-1001",
+   "name": "Rotterdam HQ",
+   "country": "NL",
+   "connection_type": "socket",
+   "socket_model": "X1700",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:fiber-1G"
+   ],
+   "connected_pop": "Amsterdam",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.1.1.0/24"
+  },
+  {
+   "site_id": "S-1001-02",
+   "customer_id": "ACC-1001",
+   "name": "Warsaw Warehouse",
+   "country": "PL",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:cable-500M",
+    "WAN2:lte"
+   ],
+   "connected_pop": "Warsaw",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.1.2.0/24"
+  },
+  {
+   "site_id": "S-1002-01",
+   "customer_id": "ACC-1002",
+   "name": "Munich Store",
+   "country": "DE",
+   "connection_type": "socket",
+   "socket_model": "X1500",
+   "socket_version": "26.0.18990",
+   "ha": false,
+   "wan_links": [
+    "WAN1:dsl-100M"
+   ],
+   "connected_pop": "Frankfurt",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.2.1.0/24"
+  },
+  {
+   "site_id": "S-1002-02",
+   "customer_id": "ACC-1002",
+   "name": "Stuttgart Store",
+   "country": "DE",
+   "connection_type": "socket",
+   "socket_model": "X1500",
+   "socket_version": "26.0.18990",
+   "ha": false,
+   "wan_links": [
+    "WAN1:dsl-100M"
+   ],
+   "connected_pop": "Frankfurt",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.2.2.0/24"
+  },
+  {
+   "site_id": "S-1002-03",
+   "customer_id": "ACC-1002",
+   "name": "AWS eu-central-1",
+   "country": "DE",
+   "connection_type": "ipsec",
+   "socket_model": null,
+   "socket_version": null,
+   "ha": false,
+   "wan_links": [
+    "primary",
+    "secondary"
+   ],
+   "connected_pop": "Frankfurt",
+   "status": "disconnected",
+   "last_seen": "2026-08-28T13:50:00Z",
+   "native_range": "10.2.3.0/24"
+  },
+  {
+   "site_id": "S-1003-01",
+   "customer_id": "ACC-1003",
+   "name": "Basel Campus",
+   "country": "CH",
+   "connection_type": "socket",
+   "socket_model": "X1700",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:fiber-1G"
+   ],
+   "connected_pop": "Zurich",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.3.1.0/24"
+  },
+  {
+   "site_id": "S-1003-02",
+   "customer_id": "ACC-1003",
+   "name": "Paris Office",
+   "country": "FR",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-500M"
+   ],
+   "connected_pop": "Paris",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.3.2.0/24"
+  },
+  {
+   "site_id": "S-1004-01",
+   "customer_id": "ACC-1004",
+   "name": "Pittsburgh Plant",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:cable-300M"
+   ],
+   "connected_pop": "Chicago",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.4.1.0/24"
+  },
+  {
+   "site_id": "S-1004-02",
+   "customer_id": "ACC-1004",
+   "name": "Madrid Plant",
+   "country": "ES",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-500M"
+   ],
+   "connected_pop": "Madrid",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "172.16.0.0/16"
+  },
+  {
+   "site_id": "S-1005-01",
+   "customer_id": "ACC-1005",
+   "name": "London Trading",
+   "country": "GB",
+   "connection_type": "socket",
+   "socket_model": "X1700",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:fiber-1G"
+   ],
+   "connected_pop": "London",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.5.1.0/24"
+  },
+  {
+   "site_id": "S-1005-02",
+   "customer_id": "ACC-1005",
+   "name": "Virginia DC",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1700",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-10G",
+    "WAN2:fiber-10G"
+   ],
+   "connected_pop": "Ashburn",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "172.16.10.0/24"
+  },
+  {
+   "site_id": "S-1005-03",
+   "customer_id": "ACC-1005",
+   "name": "Azure westeurope",
+   "country": "NL",
+   "connection_type": "ipsec",
+   "socket_model": null,
+   "socket_version": null,
+   "ha": false,
+   "wan_links": [
+    "primary",
+    "secondary"
+   ],
+   "connected_pop": "Amsterdam",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.5.3.0/24"
+  },
+  {
+   "site_id": "S-1006-01",
+   "customer_id": "ACC-1006",
+   "name": "Fresno Packing",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1500",
+   "socket_version": "26.0.18990",
+   "ha": false,
+   "wan_links": [
+    "WAN1:cable-300M"
+   ],
+   "connected_pop": "Los Angeles",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.6.1.0/24"
+  },
+  {
+   "site_id": "S-1007-01",
+   "customer_id": "ACC-1007",
+   "name": "Austin Office",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-1G"
+   ],
+   "connected_pop": "Dallas",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.20.0.0/16"
+  },
+  {
+   "site_id": "S-1007-02",
+   "customer_id": "ACC-1007",
+   "name": "Lyon Office",
+   "country": "FR",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-500M"
+   ],
+   "connected_pop": "Paris",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.7.2.0/24"
+  },
+  {
+   "site_id": "S-1008-01",
+   "customer_id": "ACC-1008",
+   "name": "Chicago Studio",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1500",
+   "socket_version": "26.0.18990",
+   "ha": false,
+   "wan_links": [
+    "WAN1:cable-500M"
+   ],
+   "connected_pop": "Chicago",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.8.1.0/24"
+  },
+  {
+   "site_id": "S-1008-02",
+   "customer_id": "ACC-1008",
+   "name": "Munich Bureau",
+   "country": "DE",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:dsl-100M",
+    "WAN2:lte"
+   ],
+   "connected_pop": "Frankfurt",
+   "status": "disconnected",
+   "last_seen": "2026-08-28T16:29:00Z",
+   "native_range": "10.8.2.0/24"
+  },
+  {
+   "site_id": "S-1008-03",
+   "customer_id": "ACC-1008",
+   "name": "Sydney Bureau",
+   "country": "AU",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-200M"
+   ],
+   "connected_pop": "Sydney",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.8.3.0/24"
+  },
+  {
+   "site_id": "S-1009-01",
+   "customer_id": "ACC-1009",
+   "name": "Denver Clinic",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1500",
+   "socket_version": "26.0.18990",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-500M"
+   ],
+   "connected_pop": "Denver",
+   "status": "disconnected",
+   "last_seen": "2026-08-28T13:50:00Z",
+   "native_range": "10.9.1.0/24"
+  },
+  {
+   "site_id": "S-1009-02",
+   "customer_id": "ACC-1009",
+   "name": "Phoenix Clinic",
+   "country": "US",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:cable-300M"
+   ],
+   "connected_pop": "Phoenix",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.9.2.0/24"
+  },
+  {
+   "site_id": "S-1010-01",
+   "customer_id": "ACC-1010",
+   "name": "Perth Mine Site",
+   "country": "AU",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:microwave-200M",
+    "WAN2:satellite"
+   ],
+   "connected_pop": "Perth",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.10.1.0/24"
+  },
+  {
+   "site_id": "S-1010-02",
+   "customer_id": "ACC-1010",
+   "name": "Datacenter (Fortigate)",
+   "country": "AU",
+   "connection_type": "ipsec",
+   "socket_model": null,
+   "socket_version": null,
+   "ha": false,
+   "wan_links": [
+    "primary",
+    "secondary"
+   ],
+   "connected_pop": "Perth",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.10.2.0/24"
+  },
+  {
+   "site_id": "S-1011-01",
+   "customer_id": "ACC-1011",
+   "name": "Frankfurt Hub",
+   "country": "DE",
+   "connection_type": "socket",
+   "socket_model": "X1700",
+   "socket_version": "27.0.19812",
+   "ha": true,
+   "wan_links": [
+    "WAN1:fiber-1G",
+    "WAN2:fiber-1G"
+   ],
+   "connected_pop": "Frankfurt",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.11.1.0/24"
+  },
+  {
+   "site_id": "S-1011-02",
+   "customer_id": "ACC-1011",
+   "name": "Singapore Ops",
+   "country": "SG",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:fiber-500M",
+    "WAN2:fiber-500M"
+   ],
+   "connected_pop": "Singapore",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.11.2.0/24"
+  },
+  {
+   "site_id": "S-1012-01",
+   "customer_id": "ACC-1012",
+   "name": "Toronto Office",
+   "country": "CA",
+   "connection_type": "socket",
+   "socket_model": "X1600",
+   "socket_version": "27.0.19812",
+   "ha": false,
+   "wan_links": [
+    "WAN1:cable-500M"
+   ],
+   "connected_pop": "Toronto",
+   "status": "connected",
+   "last_seen": "2026-08-28T16:59:30Z",
+   "native_range": "10.12.1.0/24"
+  }
+ ]
+}

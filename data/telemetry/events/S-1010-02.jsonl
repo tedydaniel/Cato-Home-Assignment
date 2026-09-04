@@ -1,0 +1,8 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1010-02", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-28T15:36:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T15:48:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T16:00:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T16:12:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T16:24:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T16:36:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}
+{"ts": "2026-08-28T16:48:00Z", "site_id": "S-1010-02", "event_type": "IPsec", "sub_type": "IKE", "action": "Failed", "message": "IKE_AUTH failed: AUTHENTICATION_FAILED (PSK mismatch)", "tunnel": "primary"}

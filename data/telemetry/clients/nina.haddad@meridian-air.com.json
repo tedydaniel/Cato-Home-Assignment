@@ -1,0 +1,15 @@
+{
+ "customer_id": "ACC-1011",
+ "os": "Windows 11",
+ "client_version": "5.14.2",
+ "last_connect_attempt": "2026-08-28T13:40:00Z",
+ "last_error": null,
+ "network": {
+  "ssid": "corp",
+  "captive_portal_detected": false,
+  "udp_443_reachable": true,
+  "tcp_443_reachable": true
+ },
+ "user_email": "nina.haddad@meridian-air.com",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

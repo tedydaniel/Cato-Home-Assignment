@@ -1,0 +1,6 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-27T21:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 31% on WAN1 for 2 minutes", "link": "WAN1"}
+{"ts": "2026-08-28T01:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 31% on WAN1 for 2 minutes", "link": "WAN1"}
+{"ts": "2026-08-28T05:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 31% on WAN1 for 2 minutes", "link": "WAN1"}
+{"ts": "2026-08-28T09:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 31% on WAN1 for 2 minutes", "link": "WAN1"}
+{"ts": "2026-08-28T13:00:00Z", "site_id": "S-1001-02", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 31% on WAN1 for 2 minutes", "link": "WAN1"}

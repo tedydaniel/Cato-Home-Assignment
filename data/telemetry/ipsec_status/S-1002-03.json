@@ -1,0 +1,36 @@
+{
+ "peer": "AWS Virtual Private Gateway (eu-central-1)",
+ "ike_version": "IKEv2",
+ "initiator": "Cato",
+ "primary": {
+  "status": "down",
+  "last_error": "NO_PROPOSAL_CHOSEN",
+  "cato_egress_ip": "185.192.101.10",
+  "site_ip": "3.120.44.7"
+ },
+ "secondary": {
+  "status": "down",
+  "last_error": "NO_PROPOSAL_CHOSEN",
+  "cato_egress_ip": "185.192.101.11",
+  "site_ip": "3.120.44.8"
+ },
+ "init_message_parameters": {
+  "encryption": "AES GCM 256",
+  "dh_group": "14",
+  "prf": "SHA256",
+  "integrity": "Automatic"
+ },
+ "auth_message_parameters": {
+  "encryption": "AES GCM 256",
+  "dh_group": "2",
+  "integrity": "Automatic"
+ },
+ "peer_reported_parameters_from_pcap": {
+  "child_sa_encryption": "AES CBC 256",
+  "child_sa_integrity": "SHA256",
+  "child_sa_dh_group": "14"
+ },
+ "note": "AWS-side tunnel options were regenerated during AWS maintenance on 2026-08-27",
+ "site_id": "S-1002-03",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

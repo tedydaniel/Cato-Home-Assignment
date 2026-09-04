@@ -1,0 +1,2 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1004-02", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1004-02", "event_type": "Routing", "sub_type": "Network Range", "action": "Warning", "message": "Native range 172.16.0.0/16 overlaps with 172.16.10.0/24 (Virginia DC of ACC-1005 is unrelated; overlap is with this account's Datacenter ranges 172.16.10.0/24 and 172.16.11.0/24)"}

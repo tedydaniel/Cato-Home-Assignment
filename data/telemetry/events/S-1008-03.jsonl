@@ -1,0 +1,2 @@
+{"ts": "2026-08-24T17:00:00Z", "site_id": "S-1008-03", "event_type": "Connectivity", "sub_type": "Last-Mile Quality", "action": "Alert", "message": "Packet loss 6.8% and jitter 44 ms on WAN1 exceeded thresholds", "link": "WAN1"}
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1008-03", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}

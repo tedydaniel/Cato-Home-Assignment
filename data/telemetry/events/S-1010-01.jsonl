@@ -1,0 +1,2 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1010-01", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-28T08:00:00Z", "site_id": "S-1010-01", "event_type": "Connectivity", "sub_type": "HA Not Ready", "action": "Alert", "message": "Compatible Version check failed: primary 27.0.19812, secondary 26.0.18990"}

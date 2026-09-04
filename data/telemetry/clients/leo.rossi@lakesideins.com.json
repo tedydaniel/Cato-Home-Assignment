@@ -1,0 +1,25 @@
+{
+ "customer_id": "ACC-1012",
+ "os": "Windows 11",
+ "client_version": "5.14.2",
+ "last_connect_attempt": "2026-08-28T16:52:00Z",
+ "last_error": "TUNNEL_TIMEOUT (408)",
+ "network": {
+  "ssid": "Shenzhen-Office-WiFi",
+  "country": "CN",
+  "captive_portal_detected": false,
+  "udp_443_reachable": false,
+  "udp_1337_reachable": true,
+  "tcp_443_reachable": true
+ },
+ "recent_sessions": [
+  {
+   "ts": "2026-08-26T15:00:00Z",
+   "pop": "Hong Kong",
+   "duration_min": 230,
+   "network": "Shenzhen-Office-WiFi"
+  }
+ ],
+ "user_email": "leo.rossi@lakesideins.com",
+ "queried_at": "2026-08-28T17:00:00Z"
+}

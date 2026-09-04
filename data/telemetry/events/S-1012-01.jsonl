@@ -1,0 +1,2 @@
+{"ts": "2026-08-27T15:00:00Z", "site_id": "S-1012-01", "event_type": "Connectivity", "sub_type": "Connected", "action": "Connected", "message": "Tunnel connected to PoP", "link": "WAN1"}
+{"ts": "2026-08-28T12:00:00Z", "site_id": "S-1012-01", "event_type": "Connectivity", "sub_type": "MTU", "action": "Info", "message": "PMTUD discovered effective MTU 1383 on WAN1 (PPPoE underlay, DF-bit ICMP Fragmentation Needed sent 412 times/hour)", "link": "WAN1"}

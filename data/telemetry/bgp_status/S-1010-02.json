@@ -1,0 +1,18 @@
+{
+ "neighbors": [
+  {
+   "peer_ip": "192.168.250.1",
+   "peer_asn": 65030,
+   "cato_asn": 65001,
+   "state": "Idle",
+   "last_error": "connect retry",
+   "hold_time_configured": 60,
+   "keepalive_configured": 20,
+   "routes_count": 0,
+   "routes_limit": 1024,
+   "flaps_24h": 0
+  }
+ ],
+ "site_id": "S-1010-02",
+ "queried_at": "2026-08-28T17:00:00Z"
+}
