@@ -7,3 +7,5 @@ node_modules/
 .next/
 artifacts/
 kb_snapshot/
+.uv-cache/
+.uv-python/
