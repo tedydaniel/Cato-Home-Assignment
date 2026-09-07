@@ -1,0 +1,314 @@
+---
+title: "Product Updates - November 10, 2025"
+slug: "product-updates-november-10-2025"
+updated: 2026-06-22T09:21:29Z
+published: 2026-06-22T09:21:29Z
+canonical: "knowledge.catonetworks.com/product-updates-november-10-2025"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://knowledge.catonetworks.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Product Updates - November 10, 2025
+
+## New Features & Enhancements
+
+- **Device Posture Profiles for Always-On Policy:** We've added the ability to use [device posture profiles in the Always-On policy](/v1/docs/protecting-users-with-always-on-security). This lets you differentiate between corporate devices that can authenticate with a device certificate check and personal unmanaged devices.
+- **New Default Network Rule and Best Practice for Software Update Traffic:** For better traffic prioritization, we added a new default rule to the Network Rules policy that defines the lowest priority for traffic for software updates, including MDM traffic.
+  - For all accounts, we added a new check to the Best Practices page to ensure that software update traffic is defined with a low priority
+  - The default rule is included in the Network Rules for new accounts only
+- **Windows Client v5.20:** Starting the week of November 10, 2025, we will gradually roll out the new Windows Client version 5.20. This version includes:
+  - Stability improvements
+  - Security updates
+  - Bug fixes
+- **IoT/OT Security Integration with Armis for High-Precision Device Inventory**: To increase the accuracy of device discovery, you can now integrate [Armis device intelligence](/v1/docs/armis-configuring-the-device-management-integration) data with Cato’s device inventory. A unified view with enriched attributes from both systems is presented on the Home > Device Inventory page.
+  - Configure in the Resources > Integrations page, or with the API
+  - This integration provides:
+    - **Precise device identification**: Combining data from both Cato and Armis
+    - **Enhanced visibility:** Managed, unmanaged, IoT, and OT assets are all visible in a unified view with rich contextual metadata
+    - **Informed security decisions**: A clearer, more complete view of your connected devices
+  - Requires IoT/OT license
+  - Click [here](https://academy.catonetworks.com/device-inventory-armis-and-zoom-integration) to watch a video recording of this feature
+- **Application Control via API Support for Make:** Connecting SaaS apps to Cato lets you understand who is accessing each app and identify suspicious activities or trends, even when users are not connected to the Cato Cloud. You can now [connect your Make account](/v1/docs/make-configuring-the-app-activities-integration) to provide visibility into user activities.
+  - The Make app is available from the **Integrations Catalog**, under **App Activities**
+  - This feature is included in the CASB license
+- **DLP Supports PII Data from Additional Countries:** [Data Loss Prevention](/v1/docs/what-is-the-cato-dlp-service) now monitors PII data, for example: driver’s license, passport, and personal ID, from these additional countries: Austria, Bulgaria, Cyprus, Czech Republic, Estonia, France, Greece, Hungary, Latvia, Lithuania, Luxembourg, Malta, Portugal, Romania, Slovakia, and Slovenia.
+  - The full list of supported data types can be viewed in the [Data Catalog](/v1/docs/creating-dlp-content-profiles)
+- **DHCP Enhancement for Socket Native Ranges:** For better control over DHCP allocations and reservations, you can now configure multiple separate DHCP ranges under the same native range. For example, the native range 1.1.1.0/24 can be configured with these 3 separate ranges:
+  - 1.1.1.1 - 1.1.1.100 (for DHCP allocations)
+  - 1.1.1.101 - 1.1.1.199 (for reservations)
+  - 1.1.1.200 - 1.1.1.255 (for DHCP allocations)
+- **Site Operations Story for Offline Socket After Upgrade:** For faster root cause analysis and recovery, we added [a Site Operations story](/v1/docs/reviewing-site-operations-stories) that detects when an upgraded Socket is offline longer than expected.
+- **Browser Extension v1.2:** A new Browser Extension v1.2 will be available in the Chrome Web Store, and includes the following:
+  - Significantly reduced appearance of browser Sign-In pop-up message
+  - Improved log collection
+- **Terraform Modules for TLS Inspection Policy Automation**: Simplify TLS Inspection policy deployment and management through Infrastructure as Code. Admins can define TLS Inspection rules and sections in JSON and automate policy updates [via Terraform](/v1/docs/using-terraform-with-the-cato-cloud).
+  - Automate the bulk creation of TLS Inspection rules and sections from a structured JSON file
+  - Easily manage rule order, sections, and item locations when updating TLS Inspection policies in the CMA
+- **Change the HA Role for Sockets with One Click**: You can now use the CMA to switch the High Availability (HA) roles of the primary and secondary Sockets, or proactively trigger a failover for testing purposes.
+  - The **Manual HA Failover** option is available in the Network > Sites page in the **Actions** drop-down
+- **Socket v24.0.20874:** We started the gradual release of minor Socket version 24.0.20874. The build contains [bug fixes and internal enhancements](/v1/docs/socket-version-24-0-release-notes).
+
+## Security Updates
+
+- **Apps Catalog**
+
+View more details about apps in the [Apps Catalog](/v1/docs/using-the-app-catalog).
+  - Removed Apps: 2 apps – Mailchi (included in Mailchimp), neuro-flash.com (included in Neuroflash)
+  - Enhanced Apps:
+    - Adobe Creative Cloud
+      - Added domain **creativecloud.adobe.com**
+    - Ai Software Llc
+      - Added domains **equals3.ai**, **smartaction.ai**, **textel.net**
+    - Appian Corporation
+      - Added domain **appiancloud.com**
+    - Aryel Srl
+      - Added domain **aryel.app**
+    - Atlassian Remote MCP Server
+      - Added domain **cf.mcp.atlassian.com**
+    - Auth0
+      - Updated app domains
+    - Basecamp LLC
+      - Removed category "Media Streams"
+    - Blackbox
+      - Added domain **useblackbox.io**
+    - Bolt
+      - Added domain **bolt.new**
+    - Box
+      - Added domains **boxcn.net**, **boxenterprise.net**
+    - Chatbase
+      - Added domain **chatbase.co**
+    - Civit AI
+      - Added the domain **civitai.green**
+    - Databricks
+      - Added domain **azuredatabricks.net**
+    - Deepmind Technologies Limited
+      - Added domain **deepmind.google**
+    - Duckduckgo
+      - Added domain **duck.ai**
+    - eclinicalworks
+      - Added domains **eclinicalweb.com**, **ecwcloud.com**, **healow.com**
+    - Flux AI
+      - Added domain **fluxaiimagegenerator.com**
+    - Framer
+      - Added domain **framerusercontent.com**
+    - Freepik Company S.L.
+      - Added domains **freepik.es**, **originalmockups.com**
+    - Gamma Tech
+      - Added domain **gamma.site**
+    - Heygen
+      - Added domain **movio.la**
+    - Hootsuite Inc.
+      - Added domain **heyday.ai**
+    - inFeedo Inc
+      - Added domain **infeedo.ai**
+    - Languagetool
+      - Added domain **languagetoolplus.com**
+    - Linguee
+      - Added domain **linguee.com**
+    - Listnr
+      - Added domain **listnr.tech**
+    - livechat
+      - Added domain **lc.chat**
+    - Lucid Vr
+      - Added domain **lucid.co**
+    - MailChimp
+      - Added domain **mailchi.mp**
+    - Meta
+      - Updated app domains
+    - Meta AI
+      - Added domain **ai.meta.com**
+    - Midjourney
+      - Added domain **midjourney.co**
+    - Miro - RealtimeBoard, Inc.
+      - Added domain **realtimeboard.com**
+    - motionbox
+      - Added domain **motionbox.io**
+    - Moveworks
+      - Added domain **moveworks.ai**
+    - Neuroflash
+      - Modified name from **Neuroflash Gmbh** to **Neuroflash**
+      - Added categories Generative AI Tools, Productivity
+      - Added domain **neuro-flash.com**
+    - novita.ai
+      - Added domain **omniinfer.io**
+    - Panopto, Inc.
+      - Added domain **panopto.eu**
+    - Pi by Inflection AI
+      - Added domain **heypi.com**
+    - Pixelz AI
+      - Added domain **pixelz.com**
+    - RingCentral
+      - Updated app IPs
+    - SAP SE
+      - Added domain **cloud.sap**
+    - Sprout Social, Inc.
+      - Added domain **sprout.link**
+    - Stability AI
+      - Updated app domains
+    - SurveyMonkey Inc.
+      - Added domains **surveymonkey.ca**, **surveymonkey.co.uk**, **surveymonkey.net**
+    - Suspicious TLD mov
+      - Updated app domains
+    - Suspicious TLD top
+      - Updated app domains
+    - Suspicious TLD zip
+      - Updated app domains
+    - Thoughtspot
+      - Added domain **thoughtspot.cloud**
+    - Tines Security Service
+      - Added domain **tines.inf.elasticnet.co**
+    - Tools A Day
+      - Added domain **toolsaday.com**
+    - Typetone
+      - Added domain **schrijven.ai**
+    - Udio AI Music Generator
+      - Added domain **udio.com**
+    - Usabilla
+      - Removed domains **surveymonkey.ca**, **surveymonkey.co.uk**, **surveymonkey.net**
+    - vision6
+      - Added domain **vision6.com.au**
+    - Weights & Biases
+      - Added domain **wandb.auth0.com**
+    - Yandex Appmetrica
+      - Modified name from **Yandex AppMetrica** to **Yandex Appmetrica**
+      - Application is now available in Application Control rules
+      - App risk increased from 1 to 3
+    - Yandex Cloud
+      - Application is now available in Application Control rules
+      - App risk increased from 1 to 3
+    - Yandex Disk
+      - Application is now available in Application Control rules
+      - App risk decreased from 4 to 3
+    - Yandex E-Mail
+      - Application is now available in Application Control rules
+      - App risk decreased from 4 to 3
+    - Yandex Market
+      - Application is now available in Application Control rules
+      - App risk increased from 1 to 3
+    - Yandex Tanslate
+      - Application is now available in Application Control rules
+      - App risk increased from 1 to 3
+  - Category Changes:
+    - Generative AI Tools: Added app Neuroflash
+    - Media Streams: Removed app Basecamp LLC
+    - Productivity: Added app Neuroflash
+- **IPS Signatures**
+
+View more details about the IPS signatures and protections in the [Threats Catalog](/v1/docs/using-the-threat-catalog).
+  - CVE-2025-0868 (New)
+  - CVE-2025-3600 (New)
+  - CVE-2025-25034 (New)
+  - CVE-2025-59287 (New)
+  - Sliver C2 - HTTP Session CnC First Request to The Server (New)
+- **Out of Band Integrations**
+  - New Apps – Make Activities (New)
+  - Enhanced Apps –
+    - GitHub Activities
+      - Code Scan Alerts (Enhancement) - Added Resource fields
+      - Vulnerability Scan Alerts (Enhancement) - Added Resource fields
+      - Secret Scan Alerts (Enhancement) - Added Resource fields
+    - Slack Activities
+      - Security Anomalies (Enhancement) - Added Resource fields
+    - Microsoft 365 App Activities
+      - Security Anomalies (Enhancement) - Added Resource fields
+    - Google Activities
+      - Security Anomalies (Enhancement) - Added Resource fields
+- **Application Control Policy / CASB**
+  - Google Drive - Share (Enhancement)
+  - ChatGPT - Download File (Enhancement)
+- **DLP**
+  - ChatGPT - Download File (Enhancement)
+- **XDR Indications of Attack**
+  - Anomaly Detection
+    - Application Used with Multiple Tenants Across the Organization (New)
+    - PsExec Activity Anomaly (New)
+    - First Occurrence of File Transfer Protocols Activity Over The LAN (New)
+    - Abnormal Suspicious Activity (New)
+- **Device Inventory**
+
+These are the updates to the [Device Inventory](/v1/docs/using-the-device-inventory-page) detection engine:
+  - IOT
+    - Multifunction Device
+      - Canon (Enhancement)
+    - Payment Terminal
+      - Castles Technology (Enhancement)
+      - Verifone (Enhancement)
+    - Printer
+      - Brother Industries (Enhancement)
+      - Epson (Enhancement)
+      - HP (Enhancement)
+      - Konica Minolta (Enhancement)
+      - Kyocera (Enhancement)
+      - Lexmark (Enhancement)
+      - Xerox (Enhancement)
+      - Zebra (Enhancement)
+    - Signage Media Player
+      - BrightSign (Enhancement)
+    - Speaker
+      - Algo (Enhancement)
+    - Unidentified IoT
+      - Grandstream Networks (Enhancement)
+      - Synology (Enhancement)
+    - Video Conferencing
+      - Cisco (Enhancement)
+    - VoIP
+      - Aastracom (Enhancement)
+      - Avaya (Enhancement)
+      - Cisco (Enhancement)
+      - Digium (Enhancement)
+      - Grandstream Networks (Enhancement)
+      - Polycom (Enhancement)
+      - Snom (Enhancement)
+      - Yealink (Enhancement)
+    - IP Camera
+      - Axis (Enhancement)
+      - Uniview (Enhancement)
+  - PC
+    - Desktop
+      - Dell (Enhancement)
+      - HP (Enhancement)
+      - Lenovo (Enhancement)
+    - Laptop
+      - Apple (Enhancement)
+      - Dell (Enhancement)
+      - HP (Enhancement)
+      - Lenovo (Enhancement)
+      - Microsoft (Enhancement)
+      - Toshiba (Enhancement)
+      - Vaio (Enhancement)
+    - Thin Client
+      - Dell (Enhancement)
+    - Workstation
+      - Apple (Enhancement)
+      - Fujitsu (Enhancement)
+      - HP (Enhancement)
+      - NEC (Enhancement)
+      - Panasonic (Enhancement)
+  - MOBILE
+    - Mobile Computer
+      - Zebra (Enhancement)
+    - Mobile Phone
+      - Newland (Enhancement)
+      - Oppo (Enhancement)
+      - Samsung (Enhancement)
+      - Vivo (Enhancement)
+    - Tablet
+      - Samsung (Enhancement)
+  - NETWORKING
+    - Network Appliance
+      - 3Com (Enhancement)
+      - Aruba Networks (Enhancement)
+      - Juniper Networks (Enhancement)
+      - Ubiquiti (Enhancement)
+  - SERVER
+    - Media Server
+      - Roku (Enhancement)
+    - Print Server
+      - HP (Enhancement)
+
+> [!NOTE]
+> Note:
+> 
+> Content described in this update is gradually rolled out to the Cato PoPs over a two-week period. In addition, new features are gradually activated in the Cato Management Application over the same two-week rollout period as the PoPs. For more information, see this [article](/v1/docs/understanding-rollout-to-the-cato-cloud-1). See the [Cato Status Page](https://status.catonetworks.com/) for more information about the planned maintenance schedule.

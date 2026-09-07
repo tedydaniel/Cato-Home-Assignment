@@ -20,7 +20,7 @@ For the Socket-to-PoP DTLS tunnel, the effective MTU is reduced by DTLS overhead
 - https://knowledge.catonetworks.com/docs/socket-mtu-and-dtls-tunnels.md — Socket LAN Ports and Jumbo Frames (score: 0.03039344262295082)
 
 Latency: 9521.1 ms
-Token cost: recorded by LangSmith when configured
+Token cost: 3.512K, $0.003617
 KB snapshot date: see `knowledge_base/snapshot/manifest.json`
 
 ## Q02
@@ -43,7 +43,7 @@ Cato doesn’t support jumbo frames on Socket LAN ports. If the Socket receives 
 - https://knowledge.catonetworks.com/docs/socket-mtu-and-dtls-tunnels.md — Behavior for Do Not Fragment (DF) Setting (WAN Interfaces) (score: 0.023373015873015872)
 
 Latency: 7747.7 ms
-Token cost: recorded by LangSmith when configured
+Token cost: 4.449K, $0.004244
 KB snapshot date: see `knowledge_base/snapshot/manifest.json`
 
 ## Q03
@@ -68,7 +68,7 @@ For Socket sites with multiple active WAN links, the PoP uses the lowest discove
 - https://knowledge.catonetworks.com/docs/performance-issues-for-socket-sites-troubleshooting.md — Troubleshooting the Issue (score: 0.027513513513513513)
 
 Latency: 7582.9 ms
-Token cost: recorded by LangSmith when configured
+Token cost: 3.929K, $0.003787
 KB snapshot date: see `knowledge_base/snapshot/manifest.json`
 
 ## Q04

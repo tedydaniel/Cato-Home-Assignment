@@ -1,0 +1,234 @@
+---
+title: "Product Updates - August 18, 2025"
+slug: "product-updates-august-18-2025"
+updated: 2026-06-22T09:21:29Z
+published: 2026-06-22T09:21:29Z
+canonical: "knowledge.catonetworks.com/product-updates-august-18-2025"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://knowledge.catonetworks.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Product Updates - August 18, 2025
+
+## New Features & Enhancements
+
+- **Important End-User Changes in Upcoming Release for macOS Client v5.10:** On August 24, 2025, we are planning to start rolling out the new macOS Client version 5.10. This version includes:
+  - Support for remote internet security with one-time authentication. This means that some Connectivity Policy rules will apply to macOS v5.10 Client users, giving them Internet access after one-time authentication
+  - An updated user interface that now includes more connectivity details
+  - For more information, see this [FAQ](/v1/docs/faqs-upgrading-to-macos-client-v5-10-aug-2025)
+- **Bypass the Cato Cloud Using Apps:** To make it easier to configure app traffic in Socket sites to egress directly to the Internet, the [Bypass policy](/v1/docs/bypassing-the-cato-cloud-site-level-policy) lets you define rules using predefined apps. For example, instead of having to configure and keep track of all the public IPs for Zoom, you can simply select the **Zoom** predefined app, and Cato ensures that the correct destinations are bypassed. These are the supported apps:
+  - Zoom
+  - Google apps
+  - Microsoft SharePoint Online & OneDrive
+  - Microsoft Teams
+  - Microsoft Exchange (Outlook)
+  - Microsoft Defender
+- **Endpoint Visibility from CrowdStrike in Stories Workbench:** We are extending XOps to include incident data from [CrowdStrike](/v1/docs/crowdstrike-configuring-the-xops-integration). Customers with XDR Pro, XOps, and MDR licenses can access CrowdStrike stories for endpoint devices to investigate in the [Stories Workbench](/v1/docs/reviewing-detection-response-xops-stories-in-the-stories-workbench).
+  - Configuring the EDR integration enables you to review related stories based on Cato native signals, providing a comprehensive view of EDR and network-based signals within a single platform
+  - Stories incorporate data about suspicious activity from CrowdStrike incidents, including:
+    - Device and user details
+    - Relevant processes, files, registry values, and more
+  - Events can be generated without a license, and stories are accessible with an XOps, XDR Pro, or MDR license
+  - Click [here](https://academy.catonetworks.com/crowdstrike-edr-stories-in-xdr) to watch a video recording of this feature
+- **Endpoint Visibility from SentinelOne in Stories Workbench:** We are extending XOps to include incident data from [SentinelOne EDR](/v1/docs/sentinelone-edr-configuring-the-xops-integration). Customers with XDR Pro, XOps, and MDR licenses can access endpoint device stories that you can investigate in the [Stories Workbench](/v1/docs/reviewing-detection-response-xops-stories-in-the-stories-workbench).
+  - Configuring the EDR integration enables you to review related stories based on Cato native signals, providing a comprehensive view of EDR and network-based signals within a single platform
+  - Stories incorporate data about suspicious activity from SentinelOne EDR incidents, including:
+    - Device and user details
+    - Relevant processes, files, registry values, and more
+  - Events can be generated without a license, and stories are accessible with an XOps, XDR Pro, or MDR license
+- **Enhanced Host Visibility in Application Analytics**: You can now more easily identify and monitor hosts with static IPs using their configured host names. Host names are easier to recognize than raw IPs, helping you quickly understand device activity and improving operational clarity and troubleshooting efficiency.
+  - The [Application Analytics](/v1/docs/understanding-app-analytics) page now displays the configured host name instead of the IP address for hosts with a static IP
+  - A new <kbd>configured_host_name</kbd> field is available in the <kbd>appStats</kbd> and <kbd>appStatsTimeSeries</kbd> APIs
+- **New Release for EPP Agent v1.5:** On Aug 17, 2025, we are starting to roll out EPP Agent version 1.5. This version includes bug fixes and enhancements.
+- **Query Socket Port Level Data via API:** You can now query Socket level data including port and transport-level metrics that were previously only visible in the Site Monitoring > Network Analytics page.
+  - Supported for Socket v20 onwards
+
+## Security Updates
+
+- **App Catalog**
+  - 450 New AI Apps (See [App Catalog](/v1/docs/using-the-app-catalog))
+  - Skype and MS Teams (Enhancement)
+  - Cymulate (New)
+  - WebSocket (New)
+  - Protime (New)
+- **IPS Signatures**
+  - IPS Signatures: View more details about the IPS signatures and protections in the [Threats Catalog](/v1/docs/using-the-threat-catalog):
+    - CVE-2020-1147 (New)
+    - CVE-2021-1472 (New)
+    - CVE-2021-24970 (New)
+    - CVE-2021-31249 (New)
+    - CVE-2021-39316 (New)
+    - CVE-2023-20864 (Enhancement)
+    - CVE-2023-31446 (New)
+    - CVE-2023-38879 (New)
+    - CVE-2023-48777 (New)
+    - CVE-2023-6549 (New)
+    - CVE-2024-0195 (New)
+    - CVE-2025-20337 (New)
+    - CVE-2025-2945 (New)
+    - CVE-2025-32815 (New)
+    - CVE-2025-33053 (Enhancement)
+    - CVE-2025-33073 (New)
+    - CVE-2025-43864 (New)
+    - CVE-2025-43865 (New)
+    - CVE-2025-44177 (New)
+    - CVE-2025-48827 (New)
+    - CVE-2025-49706 (Enhancement)
+    - CVE-2025-49718 (New)
+    - CVE-2025-53770 (Enhancement)
+    - CVE-2025-53771 (Enhancement)
+    - Heuristic - PingRAT C2 Tunneling (New)
+    - Malware - Prometei Botnet CnC (New)
+    - Ransomware - Aleta (Enhancement)
+    - Ransomware - AntiHacker (Enhancement)
+    - Ransomware - Arena (Enhancement)
+    - Ransomware - Atomic (Enhancement)
+    - Ransomware - Backups (Enhancement)
+    - Ransomware - Bash 2.0 (Bash Red) (Enhancement)
+    - Ransomware - Bitrix (Enhancement)
+    - Ransomware - BlackFL (Enhancement)
+    - Ransomware - BlackHeart (MedusaLocker) (Enhancement)
+    - Ransomware - Blackransombdbot (Enhancement)
+    - Ransomware - Blocker (Enhancement)
+    - Ransomware - BOBER (Enhancement)
+    - Ransomware - BQTLOCK (Enhancement)
+    - Ransomware - Cowa (Enhancement)
+    - Ransomware - Cybertron (Enhancement)
+    - Ransomware - Darkness (Enhancement)
+    - Ransomware - DeadLock (Enhancement)
+    - Ransomware - Dire Wolf (Enhancement)
+    - Ransomware - Jackpot (MedusaLocker) (Enhancement)
+    - Ransomware - KaWaLocker (Enhancement)
+    - Ransomware - KREMLIN (Enhancement)
+    - Ransomware - Kyj (Enhancement)
+    - Ransomware - Level (Enhancement)
+    - Ransomware - Mr.Dark101 (Enhancement)
+    - Ransomware - Nitrogen (Enhancement)
+    - Ransomware - RA World (Enhancement)
+    - Ransomware - RestoreMyData (Enhancement)
+    - Ransomware - REVRAC (Enhancement)
+    - Ransomware - Rokku (Enhancement)
+    - Ransomware - RTRUE (Enhancement)
+    - Ransomware - Sinobi (Enhancement)
+    - Ransomware - Solara (Enhancement)
+    - Ransomware - THRSX (Enhancement)
+    - Ransomware - Tiger (Enhancement)
+    - Ransomware - UraLocker (Enhancement)
+    - Ransomware - Vatican (Enhancement)
+    - Ransomware - Ziver (Enhancement)
+  - **SAM Signatures**
+    - Impacket smbexec Execution – (Enhancement)
+    - Impacket psexec Execution – (Enhancement)
+    - Certificate Signing Request via Web Enrollment from Non-Browser Client (New)
+    - SMB Public Share Enumeration Across Multiple Client Ports, Script Associated (New)
+    - SMB Public Share Enumeration Across Multiple File Names (New)
+    - SMB Public Share Enumeration Across Multiple File Names (New)
+    - SMB Public Share Enumeration Across Multiple Servers (New)
+    - SMB Public Share Write (New)
+    - SMB Public Share Write Across Multiple Client Ports, Script Associated (New)
+    - SMB Public Share Write Across Multiple File Names (New)
+    - SMB Public Share Write to Multiple Servers (New)
+  - **Application Control Policy**
+    - Intralinks – Login (New)
+    - Intralinks – View (New)
+    - Outlook – Add Attachment (Enhancement)
+    - Inline tenant control for Google Docs (New)
+    - Inline tenant control for Dropbox (New)
+  - **XDR Indications of Attack**
+    - **Anomaly Detection**
+      - Putty Connection First Occurrence Anomaly (New)
+      - First Occurrence of SSH Upstream Activity (New)
+      - First Occurrence of SAMR Activity (New)
+      - First Occurrence of Outbound Tor/Bittorrent/Torrent Activity (New)
+      - Abnormal Outbound Tor/BitTorrent/Torrent Activity (New)
+      - Abnormal DNS Activity (New)
+  - **Device Inventory**
+    - These are the updates to the [Device Inventory](/v1/docs/using-the-device-inventory-page) detection engine:
+      - **Networking**
+        - Access Point
+          - Aruba Networks (Enhancement)
+        - Network Appliance
+          - Cisco Meraki (Enhancement)
+        - WAP
+          - SonicWave (New)
+          - Cisco (Enhancement)
+      - **IoT**
+        - Media Player
+          - Roku (Enhancement)
+        - Payment Terminal
+          - Castles Technology (Enhancement)
+          - Verifone (Enhancement)
+        - Printer
+          - Canon (Enhancement)
+          - Epson (Enhancement)
+          - HP (Enhancement)
+          - Konica Minolta (Enhancement)
+          - Kyocera (Enhancement)
+          - Lexmark (Enhancement)
+          - Ricoh (Enhancement)
+        - Signage Media Player
+          - BrightSign (Enhancement)
+        - Smart Display
+          - Kyocera (Enhancement)
+        - Smart TV
+          - Samsung (Enhancement)
+          - TCL (Enhancement)
+        - Video Conferencing
+          - Logitech (Enhancement)
+        - IP Camera
+          - Axis (Enhancement)
+          - Dahua (Enhancement)
+          - Hikvision (Enhancement)
+          - Vivotek (Enhancement)
+        - VoIP
+          - Aastracom (Enhancement)
+          - Cisco (Enhancement)
+          - Grandstream Networks (Enhancement)
+          - Mitel (Enhancement)
+          - Panasonic (Enhancement)
+          - Polycom (Enhancement)
+          - Siemens (Enhancement)
+          - Ubiquiti (Enhancement)
+          - Yealink (Enhancement)
+      - **PC**
+        - Desktop
+          - HP (Enhancement)
+          - Lenovo (Enhancement)
+        - Laptop
+          - Asus (Enhancement)
+          - Dell (Enhancement)
+          - HP (Enhancement)
+          - Lenovo (Enhancement)
+          - Microsoft (Enhancement)
+          - Toshiba (Enhancement)
+          - Vaio (Enhancement)
+        - Thin Client
+          - HP (Enhancement)
+        - Workstation
+          - Apple (Enhancement)
+          - Fujitsu (Enhancement)
+          - Lenovo (Enhancement)
+          - NEC (Enhancement)
+          - Panasonic (Enhancement)
+      - **Mobile**
+        - Mobile Computer
+          - Zebra (Enhancement)
+        - Mobile Phone
+          - Apple (Enhancement)
+          - Janam (Enhancement)
+          - Oppo (Enhancement)
+          - Samsung (Enhancement)
+          - Zebra (Enhancement)
+        - Tablet
+          - Apple (Enhancement)
+          - Samsung (Enhancement)
+      - **Server**
+        - Print Server
+          - Axis (Enhancement)
+
+> [!NOTE]
+> Note:
+> 
+> Content described in this update is gradually rolled out to the Cato PoPs over a two-week period. In addition, new features are gradually activated in the Cato Management Application over the same two-week rollout period as the PoPs. For more information, see this [article](/v1/docs/understanding-rollout-to-the-cato-cloud-1). See the [Cato Status Page](https://status.catonetworks.com/) for more information about the planned maintenance schedule.

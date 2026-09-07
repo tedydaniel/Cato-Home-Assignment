@@ -1,0 +1,447 @@
+---
+title: "Product Updates - July 20, 2026"
+slug: "product-updates-july-20-2026"
+updated: 2026-07-23T15:37:08Z
+published: 2026-07-23T15:37:08Z
+canonical: "knowledge.catonetworks.com/product-updates-july-20-2026"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://knowledge.catonetworks.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Product Updates - July 20, 2026
+
+## New Features & Enhancements
+
+- **Delegate LAN Firewall Policy Management with Granular RBAC:** Delegate ownership of specific LAN Firewall policy sections to dedicated teams while maintaining centralized governance of the overall policy.
+  - Assign view or edit permissions for specific sub-policies. Show me the [LAN Firewall CMA page](https://externallink.cc.catonetworks.com/#/account/me/LanFirewall)
+  - Distribute operational ownership across regional or functional teams
+
+- **New Android Client v5.6.1:** During the week of July 19, 2026, Android Client version 5.6.1 will be uploaded to the Google Play Store. This version includes stability improvements, security updates, and bug fixes.
+
+- **AI Usage Regulation Detectors for Legal Use Cases:** We expanded AI Security detectors to monitor and control AI use for legal advice and legal content creation to help align AI usage with the EU AI Act framework. Show me the [Engine Profiles CMA page](https://externallink.cc.catonetworks.com/#/account/me/engineProfiles).
+  - **Legal Advice and Consultation**: Detects legal guidance, recommendations, risk assessments, and substantive contract review
+  - **Legal Content Creation**: Detects drafting of new contracts, NDAs, and formal legal or demand letters
+  - AI Security for Users or AI Security for Applications license required
+
+- **Ask AI Chat History:** Access and continue previous Ask AI conversations directly from the Chat History tab, so you can revisit useful answers and build on prompts that worked well.
+
+- **Starting EA for New Knowledge Base Platform:** To provide a more intuitive and efficient knowledge experience, the Knowledge Base is now available on a new platform.
+  - Between now and Aug 2, 2026, articles are up-to-date on both platforms. After Aug 2, articles will only be available on the new platform
+  - No impact on Support tickets
+  - Access the new platform at [knowledge.catonetworks.com](http://knowledge.catonetworks.com)
+  - For more information, see [this article](https://knowledge.catonetworks.com/v1/docs/moving-to-new-knowledge-base-platform)
+
+- **Enhanced Customization of the Block Page:** When users try to access a resource that matches a security rule with the Block or Prompt action, they are redirected to a block page.
+  - Additional customization of editable text:
+    - Dynamic Parameters: For example, the blocked URL or user
+    - Hyperlinks: For example, a link to open a support ticket
+
+- **IPsec IKEv2 Active/Active Sites Support 6 Tunnels:** Establish up to 6 active tunnels per role (Primary and Secondary) for IPsec Active/Active sites.
+  - Previously, 3 tunnels per role were supported
+
+- **AWS vSocket Support for C7i Instances**: Deploy AWS vSockets on supported C7i instances to use newer compute-optimized and higher-performance AWS instance types for cloud connectivity.
+  - Supports c7i.xlarge, c7i.2xlarge, c7i.4xlarge, c7i.8xlarge
+  - Socket version 26.0.23517 or higher required
+
+- **Improved Analytics for Grouped AppStats and Events API Results**: When querying AppStats or Events API data and grouping by a dimension, such as country or device type, you can choose to display records with no value for that dimension as an empty group. This helps ensure consistent totals in API queries and shows previously hidden data in CMA dashboards and reports.
+  - New query-level boolean parameter: <kbd data-zd-seq="0">IncludeEmptyDimension</kbd>, no impact to existing API scripts
+  - Applies to API queries and data shown in the CMA
+
+- **CMA Enhancements:**
+  - **Events Integration Configuration Management:** The configuration pages for the **Export to AWS S3** and **Azure Blob Storage** integrations have moved to **Integrations > Configured Integrations**.
+    - No changes to existing configurations.
+    - Now includes granular filters and integration connection status
+  - **Improvements to the App Catalog:** The App Catalog shows the app suite associated with each individual app. For example, Gmail is associated with Google
+
+- **XOps Mute Stories and Response Policies Support All Story Types:** XOps Mute Stories and Response policies support all story producers, including the Generic Producer. This lets you apply consistent story management across more XOps story sources.
+  - XOps license required
+
+## PoP Announcements
+
+- New ranges are now available for these PoP locations:
+  - **Ashburn, US:** 199.27.54.0/24
+  - **Los Angeles, US:** 199.27.53.0/24
+
+## Security Updates
+
+- **Apps Catalog**
+
+View more details about apps in the Apps Catalog.
+  - New Apps: 19 new apps - Artishok, CloudExtend, Cronofy, DTS Identity, Decisions, DoiT Cloud Intelligence, Donut, EverAfter, Government, HeroCoders, Journyx, Mindomo, PlayPower RepPortal Hub360, Popl, Rocketbook, Specflow, Sunlight, TaskHuman, Teams Pro
+  - Enhanced Apps:
+    - Datto RMM (centrastage)
+      - Updated app domains
+    - Kakaotalk
+      - Updated app IPs
+    - Microsoft Exchange (Outlook)
+      - Added domain [**outlook-cba.office365.com**](http://outlook-cba.office365.com)
+      - Updated app IPs
+- **IPS Signatures**
+
+View more details about the IPS signatures and protections in the Threats Catalog.
+  - CVE-2022-40881 (New)
+  - CVE-2024-11238 (New)
+  - CVE-2024-25415 (New)
+  - CVE-2024-4701 (New)
+  - CVE-2025-27817 (Enhancement)
+  - CVE-2025-29635 (New)
+  - CVE-2025-54322 (Enhancement)
+  - CVE-2025-55150 (New)
+  - CVE-2025-55523 (Enhancement)
+  - CVE-2026-10520 (New)
+  - CVE-2026-30958 (New)
+  - CVE-2026-3844 (New)
+  - CVE-2026-40466 (New)
+  - CVE-2026-41044 (New)
+  - CVE-2026-42271 (Enhancement)
+  - CVE-2026-4307 (Enhancement)
+  - CVE-2026-45247 (New)
+  - CVE-2026-47291 (New)
+  - CVE-2026-54157 (New)
+  - CVE-2026-8037 (New)
+  - CVE-2026-8451 (New)
+  - Heuristic - Citrix Suspicious Client SAML Login (New)
+  - Heuristic - Miasma npm Supply Chain Attack (New)
+- **SAM Signatures**
+
+These protections were added to the SAM service:
+  - Large Upload to Newly Created GitHub Repository (New)
+- **TLS Inspection**
+  - Cursor API (New)
+  - Cursor (Anysphere) - (New)
+- **XDR Indications of Attack**
+  - Indications of Attack
+    - First Seen WinSCP Activity By User (New)
+    - First Seen WinSCP Activity By Site (New)
+    - First Occurrence WinRM Application Connection Initiated by a User (New)
+    - Suspicious ICMP Activity (New)
+    - Possible ADB shell behaviour (New)
+- **Application Control Via API and Data Protection API Integrations**
+
+The enhancements were made for Application Control Via API
+  - Microsoft Office
+    - Email Security (Enhancement)
+  - Microsoft Defender
+    - EDR (Enhancement)
+  - CrowdStrike
+    - EDR (Enhancement)
+  - Microsoft Teams
+    - Experience (Enhancement)
+  - Zoom
+    - Experience (Enhancement)
+- **Dynamic Prevention**
+  - Denied Source IP from Adfind Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from AnyDesk RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from AnyDesk RMM Outbound Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from AnyDesk RMM WAN Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Atera RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from AutoIt Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Binary Download From Low Reputation Domain Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Bitvise Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Bot Communication With Telegram API Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Cloud Services Exfiltration Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Cyberduck Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Discord Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Download Via Bot Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via Curl Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via Java Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via Microsoft BITS Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via PowerShell Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via Python Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via Wget Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Download Via WinHttp Client Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Establishing an Ngrok Tunneling Activity Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Executable Access on Low Reputation WebDAV Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Executable from WordPress Path Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Filezilla Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Impacket Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from IP Check Services Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from JSE File Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Low Reputation Script Download via curl Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Low Reputation Script Download via wget Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from MEGA API Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Mremoteng Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from MS Office Executable File Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Multi-Host SMB Scan Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Netcat Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Netlify Payload Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Netscan Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from NetSupport RMM Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Nmap Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from OneDrive Suspicious Download Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Paste Site Communication Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Power Tool Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Procdump Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Processhacker Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Pstools Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from RCLONE Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from RDP Over TLS Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from RDP Tunneling Activity Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Samba Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from ScreenConnect RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from ScreenConnect RMM Outbound Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from SimpleHelp RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from SimpleHelp RMM Download Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from SimpleHelp RMM Outbound Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from SimpleHelp RMM Outbound UDP Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from SimpleHelp RMM WAN Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Sinkholed C2 Communication Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from SMB Null Session Scan Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Splashtop RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from Splashtop RMM Outbound Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Splashtop RMM Outbound Web Client Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Stunnel Tunneling Activity Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Suspected Malware Download From Low Rep Domain Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Suspected Malware Download From Low Rep IP Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Suspicious Java Application Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Suspicious Trello API Usage Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from TeamViewer RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from TeamViewer RMM Inbound Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from TeamViewer RMM Outbound Remote Connection to Low-Popularity IP Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from TeamViewer RMM WAN Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Tightvnc Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from UPX Packed File Download From Low Rep Domain Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from UPX Packed File Download From Low Rep IP Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Vulnrecon Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Winscp Download Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from WPAD MITM Attack Due to Telnet Access to Low Reputation Server (New)
+  - Denied Source IP from Zoho RMM Attended Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Denied Source IP from Zoho RMM Download Due to Low-Reputation Telnet Access (New)
+  - Denied Source IP from Zoho RMM Unattended Remote Connection Due to Low-Reputation TELNET Access (New)
+  - Detected Source IP Connecting to Low-Reputation TELNET Servers Over Non-Standard Ports, Limiting Command and Control, Data Exfiltration and Discovery (New)
+  - Detected Source IP Downloading Malware, Limiting Command and Control, Lateral Movement, Discovery and Data Exfiltration (Enhancement)
+  - Denied Source IP from Download Via Python Client Due to Malware Download Detection (New)
+  - Denied Source IP from Download Via Wget Client Due to Malware Download Detection (New)
+  - Denied Source IP from Download Via Curl Client Due to Malware Download Detection (New)
+  - Denied Source IP from Cloud Services Exfiltration Due to Malware Download Detection (New)
+  - Denied Source IP from Discord Download Due to Malware Download Detection (New)
+  - Denied Source IP from Mimikatz SMB Transfer Due to Malware Download Detection (New)
+  - Denied Source IP from SVCCTL Service Creation Due to Malware Download Detection (New)
+  - Denied Source IP from Impacket SmbExec Execution Due to Malware Download Detection (New)
+  - Denied Source IP from PAExec Execution Due to Malware Download Detection (New)
+  - Denied Source IP from PsExec Execution Due to Malware Download Detection (New)
+  - Denied Source IP from SAMR Domain Users Query Due to Malware Download Detection (New)
+  - Denied Source IP from LDAP Trust Dump Query Due to Malware Download Detection (New)
+  - Denied Source IP from SharpHound Enumeration Due to Malware Download Detection (New)
+  - Denied Source IP from RDP over TLS Connection Due to Malware Download Detection (New)
+  - Denied Source IP from RDP Tunneling Activity Due to Malware Download Detection (New)
+  - Denied Source IP from Stunnel Tunneling Activity Due to Malware Download Detection (New)
+  - Denied Source IP from Ngrok Tunneling Activity Due to Malware Download Detection (New)
+  - Denied Source IP from Script Download via curl to Low Popularity Server Due to Command and Control Framework Communication (New)
+  - Denied Source IP from MS Office Executable Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Script Download via wget to Low Popularity Server Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SSH on Non-Standard Ports Due to Command and Control Framework Communication (New)
+  - Denied Source IP from MEGA API Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from RaiDrive Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from DriverQuery Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Tactical RMM Mesh Beacon Check-In Due to Command and Control Framework Communication (New)
+  - Denied Source IP from TeamViewer RMM WAN Remote Connection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Mimikatz SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from RemCom SMB Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PsExec-like Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SAMR Local Admin Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from ADWS Enumeration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Group Policy Preferences XML-Stored Password Read Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Paste Site Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Web Proxy Auto-Discovery MITM Attack Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Suspicious Java Application Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Trello API C2 Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Access on Low Reputation WebDAV Due to Command and Control Framework Communication (New)
+  - Denied Source IP from UPX-Packed File Download from Low Reputation IP Due to Command and Control Framework Communication (New)
+  - Denied Source IP from OneDrive Suspicious Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Download from Netlify Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Download via AutoIt Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Download from WordPress Path Due to Command and Control Framework Communication (New)
+  - Denied Source IP from JSE File Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Dynamic DNS Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from IP-Check Service Access Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Sinkholed C2 Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Telnet on Non-Standard Ports Due to Command and Control Framework Communication (New)
+  - Denied Source IP from TLS on Non-Standard Ports Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SSH to Low Reputation Server Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Discord Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Pastebin C2 Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Telegram API C2 Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Rclone Communication Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Ipconfig Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Installed Software Inventory Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Nslookup Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Systeminfo Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Tasklist Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Process List Exfiltration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Bash Script Upload Due to Command and Control Framework Communication (New)
+  - Denied Source IP from ASPX Webshell Upload Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LSARPC User Rights Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Kerberos TGS Brute Force Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Kerberos AS Brute Force Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Kerberos PKINIT ESC1 Abuse Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SMB Invalid Command Due to Command and Control Framework Communication (New)
+  - Denied Source IP from DPAPI Key Collection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Zoho Assist RMM Remote Connection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Tactical RMM Beacon Config Update Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SimpleHelp RMM WAN Remote Connection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from AnyDesk RMM WAN Remote Connection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from TeamViewer RMM Inbound Remote Connection Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Splashtop RMM Streamer SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from ScreenConnect RMM Access Agent SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Splashtop RMM Application SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from ScreenConnect RMM SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from TeamViewer RMM SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from AnyDesk RMM SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Upload to Sensitive Path Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Batch Script SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PowerShell Exec-String SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from MobaXterm SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PowerShell Script SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PuTTY SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from FileZilla SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from WinSCP SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Nmap SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Netcat SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Remote Scheduled Task Creation Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Impacket DcomExec Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SvcCtl Service Deletion Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SvcCtl Service Creation Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SvcCtl Service Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from AT Scheduled Task Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Impacket AtExec Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Impacket SmbExec Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Impacket PsExec Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PAExec SMB Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from CSExec SMB Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Impersonated CSExec SMB Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SMB Impersonated-Extension Executable Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Executable Transfer via PsExec Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PsExec Executable Impersonation Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PsExec Multi-Host Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PsExec Execution Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SMB Admin Share Executable Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Advanced IP Scanner Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SMB Null Session Scan Due to Command and Control Framework Communication (New)
+  - Denied Source IP from AdFind SMB Transfer Due to Command and Control Framework Communication (New)
+  - Denied Source IP from AdFind Download Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SMB Public Share Folder Enumeration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from PsLoggedOn Logged-On Users Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Workstation Service Active Logged-On Users Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from WinReg Workstation Service Logged-On Users Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from Server Service Session Enumeration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SAMR Display Information Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SAMR Admin Lookup Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SAMR Local Group Users Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SAMR Domain Users Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from WinReg Enumeration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LDAP Groups Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from SharpHound Enumeration Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LDAP Admin User Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LDAP Computers Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LDAP Persons Query Due to Command and Control Framework Communication (New)
+  - Denied Source IP from LDAP Trust Dump Query Due to Command and Control Framework Communication (New)
+  - Detected Source IP Using Known Command and Control Frameworks, Limiting Command and Control, Lateral Movement, Discovery and Data Exfiltration (New)
+  - Denied Source IP from PsExec Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Group Policy Preferences XML-Stored Password Read Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Paste Site Communication Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Web Proxy Auto-Discovery MITM Attack Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Suspicious Java Application Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Trello API C2 Communication Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Access on Low Reputation WebDAV Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from UPX-Packed File Download from Low Reputation IP Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from OneDrive Suspicious Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Download from Netlify Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Download from WordPress Path Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from MS Office Executable Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Download via AutoIt Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from JSE File Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Dynamic DNS Communication Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from IP-Check Service Access Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Sinkholed C2 Communication Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Script Download via wget to Low Popularity Server Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Script Download via curl to Low Popularity Server Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Telnet on Non-Standard Ports Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SSH on Non-Standard Ports Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SSH to Low Reputation Server Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Bash Script Upload Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from ASPX Webshell Upload Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LSARPC User Rights Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Kerberos TGS Brute Force Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Kerberos AS Brute Force Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Kerberos PKINIT ESC1 Abuse Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from DPAPI Key Collection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SMB Invalid Command Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Tactical RMM Beacon Config Update Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Tactical RMM Mesh Beacon Check-In Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Splashtop RMM Streamer SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Splashtop RMM Application SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from ScreenConnect RMM Access Agent SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from ScreenConnect RMM SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from TeamViewer RMM SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AnyDesk RMM SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Upload to Sensitive Path Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Batch Script SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PowerShell Exec-String SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PowerShell Script SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from MobaXterm SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PuTTY SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from FileZilla SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from WinSCP SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Nmap SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Netcat SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Mimikatz SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Remote Scheduled Task Creation Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Impacket DcomExec Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SvcCtl Service Deletion Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SvcCtl Service Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SvcCtl Service Creation Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Impacket AtExec Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AT Scheduled Task Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Impacket SmbExec Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Impacket PsExec Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from RemCom SMB Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Impersonated CSExec SMB Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from CSExec SMB Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PAExec SMB Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SMB Impersonated-Extension Executable Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Executable Transfer via PsExec Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PsExec Executable Impersonation Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PsExec Multi-Host Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PsExec-like Execution Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SMB Admin Share Executable Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Advanced IP Scanner Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SMB Null Session Scan Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AdFind SMB Transfer Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AdFind Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SMB Public Share Folder Enumeration Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from PsLoggedOn Logged-On Users Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from WinReg Workstation Service Logged-On Users Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SharpHound Enumeration Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Workstation Service Active Logged-On Users Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Server Service Session Enumeration Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SAMR Display Information Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SAMR Admin Lookup Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SAMR Local Group Users Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SAMR Local Admin Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SAMR Domain Users Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from ADWS Enumeration Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from WinReg Enumeration Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LDAP Groups Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LDAP Admin User Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LDAP Computers Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LDAP Persons Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from LDAP Trust Dump Query Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from TeamViewer RMM WAN Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from TeamViewer RMM Outbound Remote Connection to Low Popularity IP Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from TeamViewer RMM Inbound Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SimpleHelp RMM Download Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SimpleHelp RMM Outbound Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from SimpleHelp RMM WAN Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AnyDesk RMM WAN Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from AnyDesk RMM Remote Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from RDP over TLS Connection Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Stunnel Tunneling Activity Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from Ngrok Tunneling Activity Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from RDP Tunneling Activity Due to Multiple Malicious Feed Matches (New)
+  - Denied Source IP from HoaxShell C2 Communication Due to Multiple Malicious Feed Matches (New)
+  - Detected Source IP Matching Multiple Malicious Threat Feeds, Limiting Command and Control, Lateral Movement and Discovery (New)
+
+**Note:** Content described in this update is gradually rolled out to the Cato PoPs over a two-week period. In addition, new features are gradually activated in the Cato Management Application over the same two-week rollout period as the PoPs. For more information, see this article. See the [Cato Status Page](https://status.catonetworks.com/) for more information about the planned maintenance schedule.

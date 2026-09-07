@@ -60,7 +60,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     } catch (cause) { setConvs(current => current.map(item => item.id === conversationId ? { ...item, messages: item.messages.filter(message => message !== optimisticMessage) } : item)); setError(cause instanceof Error ? cause.message : "Could not send message"); }
     finally { setSendingConversationId(current => current === conversationId ? null : current); }
   };
-  const resolve = async (id: string, status: "approved" | "rejected" | "edit") => { try { const note=status==="edit"?window.prompt("Reviewer edit note:")??"":undefined; await request<ApiApproval>(`/api/approvals/${id}/decision`, { method: "POST", body: JSON.stringify({ decision: status, reviewer: "demo-reviewer@local", note }) }); setTasks(current => current.map(item => item.id === id ? { ...item, status: status === "edit" ? "open" : status } : item)); } catch (cause) { setError(cause instanceof Error ? cause.message : "Could not decide approval"); } };
+  const resolve = async (id: string, status: "approved" | "rejected" | "edit") => {
+    try {
+      const note = status === "edit" ? window.prompt("Reviewer edit note:") ?? "" : undefined;
+      await request<ApiApproval>(`/api/approvals/${id}/decision`, {
+        method: "POST",
+        body: JSON.stringify({ decision: status, reviewer: "demo-reviewer@local", note }),
+      });
+      setTasks(current => current.map(item => item.id === id ? { ...item, status: status === "edit" ? "open" : status } : item));
+      const requesterEmail = window.localStorage.getItem("requester_email");
+      if (requesterEmail) {
+        const items = await request<ApiConversation[]>(`/api/conversations?requester_email=${encodeURIComponent(requesterEmail)}`);
+        setConvs(items.map(item => toConversation(item)));
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not decide approval");
+    }
+  };
   return <C.Provider value={{ convs, selected, tasks, error, isSending, isReplying, select: setSelected, add, remove, send, resolve }}>{children}</C.Provider>;
 }
 export const useApp = () => { const value = useContext(C); if (!value) throw Error("missing provider"); return value; };
