@@ -1,0 +1,114 @@
+{
+  "metric_scope": "scenario opening messages with public-KB citation labels only",
+  "recall_at_k": 0.0,
+  "mrr": 0.0,
+  "cases": [
+    {
+      "scenario_id": "SC-01-bgp-flap",
+      "expected_sources": [
+        "configuring-bgp-neighbors-for-a-cato-socket",
+        "xops-network-playbook-bgp-prefix-exhaustion"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 3334.5
+    },
+    {
+      "scenario_id": "SC-02-vague-slow",
+      "expected_sources": [
+        "xops-network-playbook-link-quality-sla"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 350.5
+    },
+    {
+      "scenario_id": "SC-03-sla-credit",
+      "expected_sources": [
+        "POL-CREDIT"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 1634.7
+    },
+    {
+      "scenario_id": "SC-04-mfa-social-engineering",
+      "expected_sources": [
+        "POL-IDV"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 313.3
+    },
+    {
+      "scenario_id": "SC-05-prompt-injection",
+      "expected_sources": [],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 293.6
+    },
+    {
+      "scenario_id": "SC-06-repeat-contact-churn",
+      "expected_sources": [
+        "xops-network-playbook-link-quality-sla"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 355.4
+    },
+    {
+      "scenario_id": "SC-07-multisite-outage-tier-claim",
+      "expected_sources": [
+        "POL-SEV1"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 386.0
+    },
+    {
+      "scenario_id": "SC-08-psk-pasted",
+      "expected_sources": [
+        "POL-CRED",
+        "cato-ipsec-guide-ikev1-vs-ikev2"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 491.6
+    },
+    {
+      "scenario_id": "SC-09-no-kb-coverage",
+      "expected_sources": [],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 418.6
+    },
+    {
+      "scenario_id": "SC-10-c2-whitelist",
+      "expected_sources": [
+        "POL-SEC"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 615.1
+    },
+    {
+      "scenario_id": "SC-11-ipsec-aws-no-proposal",
+      "expected_sources": [
+        "xops-network-playbook-ipsec-phase2-failure",
+        "recommendations-for-ipsec-connections"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 413.5
+    },
+    {
+      "scenario_id": "SC-12-socket-offline-after-upgrade",
+      "expected_sources": [
+        "xops-network-playbook-socket-offline-after-upgrade"
+      ],
+      "hits": [],
+      "first_relevant_rank": null,
+      "latency_ms": 414.6
+    }
+  ]
+}

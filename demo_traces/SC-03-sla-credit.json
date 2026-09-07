@@ -1,0 +1,285 @@
+{
+  "scenario_id": "SC-03-sla-credit",
+  "score": {
+    "citations": true,
+    "action": true
+  },
+  "response": {
+    "message": "I submitted this request for human review. You can continue this conversation while it is pending.",
+    "citation_evidence_ids": [
+      "kb:POL-CREDIT:e083bd83e9",
+      "kb:POL-SEV1:0653cccd66",
+      "kb:POL-CREDIT:8e0294546e",
+      "kb:POL-SEV1:9813fafb09",
+      "kb:POL-SEV1:c1eed36b73"
+    ],
+    "tool_evidence_ids": [],
+    "citations": [
+      {
+        "source": "policy://POL-CREDIT",
+        "evidence_id": "kb:POL-CREDIT:e083bd83e9",
+        "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Process"
+      },
+      {
+        "source": "policy://POL-SEV1",
+        "evidence_id": "kb:POL-SEV1:0653cccd66",
+        "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 SLA"
+      },
+      {
+        "source": "policy://POL-CREDIT",
+        "evidence_id": "kb:POL-CREDIT:8e0294546e",
+        "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Out of scope for support"
+      },
+      {
+        "source": "policy://POL-SEV1",
+        "evidence_id": "kb:POL-SEV1:9813fafb09",
+        "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Definition"
+      },
+      {
+        "source": "policy://POL-SEV1",
+        "evidence_id": "kb:POL-SEV1:c1eed36b73",
+        "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Escalation procedure"
+      }
+    ]
+  },
+  "state": {
+    "conversation_id": "daed1ffa-b92f-41c3-9584-2f5b5373f0ac",
+    "customer_context": {
+      "customer_id": "ACC-1011",
+      "company": "Meridian Airlines",
+      "tier": "Premium",
+      "requester_email": "nina.haddad@meridian-air.com",
+      "identity_verified": false,
+      "sites": [
+        {
+          "site_id": "S-1011-01",
+          "name": "Frankfurt Hub",
+          "country": "DE",
+          "connection_type": "socket"
+        },
+        {
+          "site_id": "S-1011-02",
+          "name": "Singapore Ops",
+          "country": "SG",
+          "connection_type": "socket"
+        }
+      ]
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Per our contract we are owed a service credit for the 6-hour outage on Aug 21 (your incident INC-4471). Our monthly fee is $18,000, so $3,600. Please confirm the credit this week."
+      },
+      {
+        "role": "assistant",
+        "content": "I submitted this request for human review. You can continue this conversation while it is pending."
+      },
+      {
+        "role": "user",
+        "content": "So is the $3,600 confirmed or not? I need a yes for my finance team today."
+      },
+      {
+        "role": "assistant",
+        "content": "I submitted this request for human review. You can continue this conversation while it is pending."
+      },
+      {
+        "role": "user",
+        "content": "Fine. When exactly will I hear back?"
+      }
+    ],
+    "ticket_history": [
+      {
+        "ticket_id": "TCK-20264231",
+        "created_at": "2026-08-26T14:12:00Z",
+        "site_id": "S-1011-02",
+        "product_area": "connectivity",
+        "priority": "P4",
+        "subject": "How do we know when a site switches PoP?",
+        "status": "open"
+      },
+      {
+        "ticket_id": "TCK-20264227",
+        "created_at": "2026-08-26T09:47:00Z",
+        "site_id": null,
+        "product_area": "cloud",
+        "priority": "P3",
+        "subject": "Can we speed up failover between our two IPsec tunnels?",
+        "status": "open"
+      },
+      {
+        "ticket_id": "TCK-20264209",
+        "created_at": "2026-08-24T13:05:00Z",
+        "site_id": null,
+        "product_area": "billing",
+        "priority": "P3",
+        "subject": "Demanding SLA credit for the Aug 21 outage",
+        "status": "open"
+      },
+      {
+        "ticket_id": "TCK-20264208",
+        "created_at": "2026-08-24T13:00:00Z",
+        "site_id": null,
+        "product_area": "identity",
+        "priority": "P3",
+        "subject": "Admin left the company, need CMA access transferred",
+        "status": "open"
+      },
+      {
+        "ticket_id": "TCK-20264202",
+        "created_at": "2026-08-24T08:10:00Z",
+        "site_id": null,
+        "product_area": "egress",
+        "priority": "P3",
+        "subject": "VoIP calls drop when the egress IP changes",
+        "status": "open"
+      }
+    ],
+    "triage_result": {
+      "route": "action",
+      "protected_action": "service_credit",
+      "requested_action": null,
+      "priority": null,
+      "site_id": null,
+      "needs_customer_question": false,
+      "summary": "A protected request requires policy evidence and human review."
+    },
+    "knowledge_evidence": {
+      "status": "complete",
+      "findings": [
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:e083bd83e9",
+          "fact": "Article title: POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy)\nSection: Process\n\n1. Verify the claimed outage against Cato incident records (incident ID, affected PoPs or services,\n   duration). Customer-reported duration alone is not sufficient evidence.\n2. Draft the credit memo: account, period, qualifying incident IDs, computed amount.\n3. Submit for approval (approve / edit / reject). The conversation stays in `pending_approval`.\n4. On approval, notify the customer and attach the memo. On rejection, communicate the decision\n   with the approver's stated reason."
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:0653cccd66",
+          "fact": "Article title: POL-SEV1: Sev-1 definition and escalation (internal policy)\nSection: SLA\n\nSev-1 response SLA: 15 minutes (all tiers). Resolution target: 4 hours. Qualifying breaches feed\nthe credit process - see POL-CREDIT after the incident closes."
+        },
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:8e0294546e",
+          "fact": "Article title: POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy)\nSection: Out of scope for support\n\nContract renegotiation, license quantity changes, early termination, and pricing go to the\naccount manager."
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:9813fafb09",
+          "fact": "Article title: POL-SEV1: Sev-1 definition and escalation (internal policy)\nSection: Definition\n\nSev-1: complete loss of connectivity for an entire account, two or more sites down in the same\nregion simultaneously, a suspected PoP-side outage, or a confirmed security incident. When in\ndoubt between Sev-1 and Sev-2, page as Sev-1."
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:c1eed36b73",
+          "fact": "Article title: POL-SEV1: Sev-1 definition and escalation (internal policy)\nSection: Escalation procedure\n\n1. Acknowledge within 15 minutes with an incident reference.\n2. Page the on-call incident commander (human) immediately - a Sev-1 is never handled by\n   automation alone. Escalation to a human is mandatory.\n3. Check the Cato status page (https://status.catonetworks.com/) and PoP health; if multiple\n   accounts show tunnel drops to the same PoP, declare a platform incident and attach all related\n   conversations to it.\n4. Open a live incident bridge; record the incident ID on every related ticket.\n5. Customer updates at least every 30 minutes until mitigated, even if the update is \"still\n   investigating\"."
+        }
+      ],
+      "citations": [
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:e083bd83e9",
+          "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Process"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:0653cccd66",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 SLA"
+        },
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:8e0294546e",
+          "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Out of scope for support"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:9813fafb09",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Definition"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:c1eed36b73",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Escalation procedure"
+        }
+      ],
+      "retrievals": [
+        {
+          "source": "policy://POL-CREDIT",
+          "section": "Process",
+          "score": 0.07112554136363637,
+          "query": "service credit policy outage incident eligibility Cato contract SLA credit approval process"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "section": "SLA",
+          "score": 0.0590909090909091,
+          "query": "service credit policy outage incident eligibility Cato contract SLA credit approval process"
+        },
+        {
+          "source": "policy://POL-CREDIT",
+          "section": "Out of scope for support",
+          "score": 0.057272727272727274,
+          "query": "service credit policy outage incident eligibility Cato contract SLA credit approval process"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "section": "Definition",
+          "score": 0.05363636363636364,
+          "query": "INC-4471 outage service credit how to calculate monthly fee prorated credit eligibility"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "section": "Escalation procedure",
+          "score": 0.05666666666666667,
+          "query": "customer service credit request timeline human review finance confirmation Cato support policy"
+        }
+      ]
+    },
+    "action_request": {
+      "action_type": "service_credit",
+      "reason": "A protected request requires policy evidence and human review.",
+      "evidence_ids": []
+    },
+    "action_result": {
+      "action": "approval_request",
+      "ticket_id": null,
+      "approval_id": "c5445f39-2ae3-4221-baaa-1eda692472e5",
+      "summary": "The protected action is pending human approval."
+    },
+    "final_response": {
+      "message": "I submitted this request for human review. You can continue this conversation while it is pending.",
+      "citation_evidence_ids": [
+        "kb:POL-CREDIT:e083bd83e9",
+        "kb:POL-SEV1:0653cccd66",
+        "kb:POL-CREDIT:8e0294546e",
+        "kb:POL-SEV1:9813fafb09",
+        "kb:POL-SEV1:c1eed36b73"
+      ],
+      "tool_evidence_ids": [],
+      "citations": [
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:e083bd83e9",
+          "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Process"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:0653cccd66",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 SLA"
+        },
+        {
+          "source": "policy://POL-CREDIT",
+          "evidence_id": "kb:POL-CREDIT:8e0294546e",
+          "fact": "POL-CREDIT: SLA credits, refunds, and billing disputes (internal policy) \u2014 Out of scope for support"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:9813fafb09",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Definition"
+        },
+        {
+          "source": "policy://POL-SEV1",
+          "evidence_id": "kb:POL-SEV1:c1eed36b73",
+          "fact": "POL-SEV1: Sev-1 definition and escalation (internal policy) \u2014 Escalation procedure"
+        }
+      ]
+    }
+  }
+}

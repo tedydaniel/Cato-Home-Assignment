@@ -1,8 +1,9 @@
-"""Refresh the Cato KB snapshot and incrementally index changed chunks in pgvector."""
+"""Index the pinned Cato KB snapshot; refresh it only when explicitly requested."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -25,6 +26,10 @@ EMBEDDING_DIMENSIONS = 1536
 EMBEDDING_BATCH_SIZE = 64
 
 
+class SnapshotIntegrityError(RuntimeError):
+    """Raised when the committed KB snapshot no longer matches its manifest."""
+
+
 def database_url() -> str:
     url = get_settings().postgres_url
     if not url:
@@ -38,6 +43,40 @@ def vector_literal(vector: list[float]) -> str:
 
 def changed(remote_sha256: str, stored_sha256: str | None) -> bool:
     return remote_sha256 != stored_sha256
+
+
+def load_snapshot_entries(snapshot_dir: Path) -> list[dict[str, Any]]:
+    """Read and hash-verify the local, pinned snapshot without network access."""
+    try:
+        manifest = json.loads((snapshot_dir / "manifest.json").read_text(encoding="utf-8"))
+        articles = manifest["articles"]
+    except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
+        raise SnapshotIntegrityError("The KB snapshot manifest is missing or invalid.") from error
+
+    root = snapshot_dir.resolve()
+    entries: list[dict[str, Any]] = []
+    for article in articles:
+        if article.get("status") == "failed":
+            continue
+        try:
+            relative_path = Path(article["path"])
+            expected_hash = article["sha256"]
+            url = article["url"]
+        except (KeyError, TypeError) as error:
+            raise SnapshotIntegrityError("A KB manifest entry is missing its URL, path, or hash.") from error
+        path = (root / relative_path).resolve()
+        if root not in path.parents:
+            raise SnapshotIntegrityError(f"Manifest article path escapes the snapshot: {relative_path}")
+        try:
+            actual_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+        except OSError as error:
+            raise SnapshotIntegrityError(f"Pinned KB article is unavailable: {relative_path}") from error
+        if actual_hash != expected_hash:
+            raise SnapshotIntegrityError(f"Pinned KB article hash does not match the manifest: {url}")
+        entries.append(article)
+    if not entries:
+        raise SnapshotIntegrityError("The KB snapshot contains no indexable articles.")
+    return entries
 
 
 def embed(texts: list[str]) -> list[list[float]]:
@@ -91,15 +130,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--min-interval-seconds", type=float, default=0.25)
     parser.add_argument("--snapshot-dir", type=Path, default=DEFAULT_SNAPSHOT_DIR)
+    parser.add_argument("--refresh-snapshot", action="store_true", help="Recrawl the public KB before indexing. Requires internet access.")
     arguments = parser.parse_args()
 
-    index_path = download_llms_index(DEFAULT_OUTPUT)
-    entries = crawl_articles(
-        index_path.read_text(encoding="utf-8"), arguments.snapshot_dir,
-        robots=load_robots(), minimum_interval_seconds=arguments.min_interval_seconds,
-        refresh_existing=True,
-    )
-    write_manifest(arguments.snapshot_dir, entries)
+    if arguments.refresh_snapshot:
+        index_path = download_llms_index(DEFAULT_OUTPUT)
+        entries = crawl_articles(
+            index_path.read_text(encoding="utf-8"), arguments.snapshot_dir,
+            robots=load_robots(), minimum_interval_seconds=arguments.min_interval_seconds,
+            refresh_existing=True,
+        )
+        write_manifest(arguments.snapshot_dir, entries)
+    else:
+        entries = load_snapshot_entries(arguments.snapshot_dir)
     chunks_by_url: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for chunk in build_chunks(arguments.snapshot_dir):
         chunks_by_url[chunk["article_url"]].append(chunk)
@@ -108,7 +151,9 @@ def main() -> None:
         for article in entries:
             if article.get("status") != "failed" and sync_article(connection, article, chunks_by_url[article["url"]]):
                 updated += 1
-    print(f"KB ingestion complete: {updated} updated articles, {len(entries) - updated} unchanged or failed.")
+    from scripts.ingest_policies import sync_policies
+    policies_updated = sync_policies()
+    print(f"KB ingestion complete: {updated} updated articles, {len(entries) - updated} unchanged; {policies_updated} policy documents updated.")
 
 
 if __name__ == "__main__":
