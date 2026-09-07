@@ -9,7 +9,9 @@ from pathlib import Path
 from statistics import median
 from typing import Any
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+from scripts.paths import project_root
+
+PROJECT_ROOT = project_root(__file__)
 DEFAULT_SNAPSHOT_DIR = PROJECT_ROOT / "knowledge_base" / "snapshot"
 WORD_PATTERN = re.compile(r"[\w]+(?:['’-][\w]+)*", re.UNICODE)
 

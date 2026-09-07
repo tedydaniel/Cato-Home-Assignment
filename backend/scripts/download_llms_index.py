@@ -10,8 +10,10 @@ from typing import Protocol
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+from scripts.paths import project_root
+
 LLMS_INDEX_URL = "https://knowledge.catonetworks.com/llms.txt"
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = project_root(__file__)
 DEFAULT_OUTPUT = PROJECT_ROOT / "knowledge_base" / "raw" / "llms.txt"
 USER_AGENT = "CatoSupportEngineerHomeTask/0.1 (KB snapshot downloader)"
 

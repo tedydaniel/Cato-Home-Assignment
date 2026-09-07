@@ -20,8 +20,9 @@ from scripts.download_llms_index import (
     _atomic_write,
     download_llms_index,
 )
+from scripts.paths import project_root
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = project_root(__file__)
 DEFAULT_SNAPSHOT_DIR = PROJECT_ROOT / "knowledge_base" / "snapshot"
 ROBOTS_URL = "https://knowledge.catonetworks.com/robots.txt"
 ARTICLE_LINK_PATTERN = re.compile(r"\[[^\]]+\]\((https://[^)]+\.md)\)")
