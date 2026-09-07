@@ -13,6 +13,8 @@ class EvidenceReference(BaseModel):
 
 class TriageResult(BaseModel):
     route: Literal["technical", "knowledge", "action"]
+    protected_action: Literal["mfa_reset", "service_credit", "c2_verdict_override"] | None = None
+    requested_action: Literal["ticket_create"] | None = None
     priority: Literal["P1", "P2", "P3", "P4"] | None = None
     site_id: str | None = None
     needs_customer_question: bool = False
@@ -29,10 +31,11 @@ class KnowledgeResult(BaseModel):
     status: Literal["complete", "no_coverage", "unavailable"]
     findings: list[EvidenceReference] = Field(default_factory=list)
     citations: list[EvidenceReference] = Field(default_factory=list)
+    retrievals: list[dict[str, object]] = Field(default_factory=list)
 
 
 class ActionResult(BaseModel):
-    action: Literal["none", "ticket_update", "ticket_create", "escalate_sev1", "approval_request"]
+    action: Literal["none", "ticket_update", "ticket_create", "escalate_sev1", "approval_request", "approval_unavailable"]
     ticket_id: str | None = None
     approval_id: str | None = None
     summary: str
@@ -42,3 +45,4 @@ class ResponseResult(BaseModel):
     message: str
     citation_evidence_ids: list[str] = Field(default_factory=list)
     tool_evidence_ids: list[str] = Field(default_factory=list)
+    citations: list[EvidenceReference] = Field(default_factory=list)

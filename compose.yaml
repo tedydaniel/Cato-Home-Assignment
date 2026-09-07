@@ -12,37 +12,26 @@ services:
     build: ./backend
     environment: &app_env
       POSTGRES_URL: ${POSTGRES_URL}
-      REDIS_URL: ${REDIS_URL}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       OPENAI_MODEL: ${OPENAI_MODEL:-}
+      KNOWLEDGE_MIN_SCORE: ${KNOWLEDGE_MIN_SCORE:-0.020}
       LANGSMITH_TRACING: ${LANGSMITH_TRACING:-false}
       LANGSMITH_API_KEY: ${LANGSMITH_API_KEY:-}
       LANGSMITH_PROJECT: ${LANGSMITH_PROJECT:-cato-support-engineer}
       LANGSMITH_ENDPOINT: ${LANGSMITH_ENDPOINT:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
     volumes: ["./data:/app/data:ro"]
     depends_on:
       migrate: {condition: service_completed_successfully}
       seed:
         condition: service_completed_successfully
       postgres: {condition: service_healthy}
-      redis: {condition: service_healthy}
     ports: ["8000:8000"]
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/live')"]
       interval: 10s
       timeout: 3s
       retries: 5
-  worker:
-    build: ./backend
-    command: ["celery", "-A", "app.worker.celery_app", "worker", "--loglevel=INFO"]
-    environment: *app_env
-    volumes: ["./data:/app/data:ro"]
-    depends_on:
-      migrate: {condition: service_completed_successfully}
-      seed:
-        condition: service_completed_successfully
-      postgres: {condition: service_healthy}
-      redis: {condition: service_healthy}
   migrate:
     build: ./backend
     command: ["alembic", "upgrade", "head"]
@@ -56,6 +45,16 @@ services:
     volumes: ["./data:/app/data:ro"]
     depends_on:
       migrate: {condition: service_completed_successfully}
+  ingest:
+    build: ./backend
+    command: ["python", "-m", "scripts.ingest_kb"]
+    profiles: ["tools"]
+    environment: *app_env
+    volumes:
+      - "./data:/app/data:ro"
+      - "./knowledge_base:/app/knowledge_base"
+    depends_on:
+      seed: {condition: service_completed_successfully}
   postgres:
     image: pgvector/pgvector:pg16
     environment:
@@ -69,16 +68,5 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-  redis:
-    image: redis:7-alpine
-    command: ["redis-server", "--appendonly", "yes"]
-    volumes: ["redis_data:/data"]
-    ports: ["6379:6379"]
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
 volumes:
   postgres_data:
-  redis_data:

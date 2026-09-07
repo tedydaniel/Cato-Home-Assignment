@@ -10,12 +10,12 @@ from app.graph.state import SupportState
 AgentNode = Callable[[SupportState], dict[str, Any]]
 
 
-def _next_after_triage(state: SupportState) -> Literal["diagnostics", "knowledge", "actions"]:
+def _next_after_triage(state: SupportState) -> Literal["diagnostics", "knowledge"]:
     route = state["triage_result"]["route"]
     return {
         "technical": "diagnostics",
         "knowledge": "knowledge",
-        "action": "actions",
+        "action": "knowledge",
     }[route]
 
 
@@ -26,6 +26,7 @@ def build_support_graph(
     knowledge: AgentNode,
     actions: AgentNode,
     response: AgentNode,
+    checkpointer: Any | None = None,
 ):
     """Build the parent graph; concrete agents are injected for easy testing."""
     graph = StateGraph(SupportState)
@@ -40,4 +41,4 @@ def build_support_graph(
     graph.add_edge("knowledge", "actions")
     graph.add_edge("actions", "response")
     graph.add_edge("response", END)
-    return graph.compile()
+    return graph.compile(checkpointer=checkpointer)

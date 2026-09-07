@@ -22,15 +22,15 @@ or technical evidence.
 | LLM integration | Provider adapter; initial implementation uses OpenAI through LangChain. Models are environment-configured. |
 | Tracing | LangSmith for graph/model/tool traces, plus a first-party immutable database audit trail for the reviewer UI and replay. |
 | Primary database | PostgreSQL 16 with `pgvector` and built-in full-text search |
-| Queue and broker | Redis 7 + Celery |
+| Background work | Explicit CLI commands for KB ingestion and evals; no queue in the demo stack |
 | Retrieval | Hybrid lexical + vector search, reciprocal-rank fusion (RRF), metadata filtering, optional reranking |
 | API streaming | Server-Sent Events (SSE) from backend to frontend |
 | Packaging | Docker Compose, one container for each service described below |
 | Testing | pytest, httpx, Playwright, deterministic policy tests, CLI eval runner |
 
-Python is selected for the backend because the requested Celery worker and
-LangGraph PostgreSQL persistence are first-class, well-supported Python
-workflows. The frontend remains independently deployable TypeScript.
+Python is selected for the backend because LangGraph and PostgreSQL persistence
+are first-class, well-supported Python workflows. The frontend remains
+independently deployable TypeScript.
 
 LangGraph checkpoints are durable workflow state, not the only application
 record. PostgreSQL business tables remain authoritative for conversations,
@@ -41,15 +41,13 @@ messages, approvals, tickets, and reviewer-facing audit data.
 | Service | Responsibilities | Persistent data |
 | --- | --- | --- |
 | `frontend` | Next.js customer chat, reviewer console, trace and approval views | none |
-| `backend` | FastAPI REST/SSE API, LangGraph execution, typed tools, retrieval, policy enforcement | none; writes PostgreSQL/Redis |
+| `backend` | FastAPI REST/SSE API, LangGraph execution, typed tools, retrieval, policy enforcement | none; writes PostgreSQL |
 | `postgres` | Application state, LangGraph checkpoints, KB corpus/indexes, audit trail | named volume `postgres_data` |
-| `redis` | Celery broker/result backend and short-lived job coordination | named volume `redis_data` |
-| `worker` | Celery jobs: crawl, parse, chunk, embed, eval runs, report generation | none; writes PostgreSQL/files |
 
-`backend` and `worker` use the same Python image but different commands. All
-secrets are supplied through `.env` (never committed). A `docker compose up
+All secrets are supplied through `.env` (never committed). A `docker compose up
 --build` path must run the UI without requiring a fresh KB crawl; the committed
-KB snapshot is loaded by a seed/import job.
+KB snapshot is loaded by a seed/import job. KB refreshes and eval runs are
+explicit CLI commands in this demo, rather than queued background jobs.
 
 ## 4. Agent graph
 
@@ -123,7 +121,7 @@ and transcript replay; LangSmith complements it rather than replacing it.
 
 ## 6. Retrieval and knowledge ingestion
 
-`worker` provides an idempotent pipeline:
+The KB ingestion CLI provides an idempotent pipeline:
 
 1. Crawl only English Cato KB pages, respecting `robots.txt`, a declared user
    agent, and rate limits.
@@ -193,7 +191,6 @@ The CI-runnable evaluation suite must include:
 
 ```dotenv
 POSTGRES_URL=postgresql+psycopg://...
-REDIS_URL=redis://redis:6379/0
 OPENAI_API_KEY=
 OPENAI_MODEL=
 LANGSMITH_TRACING=true
@@ -205,7 +202,7 @@ KB_SNAPSHOT_DATE=
 
 ## 11. Implementation sequence
 
-1. Scaffold Compose, FastAPI, Next.js, PostgreSQL migrations, Redis, and Celery.
+1. Scaffold Compose, FastAPI, Next.js, and PostgreSQL migrations.
 2. Import supplied account/ticket/policy/telemetry data and implement typed tools.
 3. Implement the crawler and pinned KB ingestion/retrieval pipeline.
 4. Build the LangGraph graph, checkpointer, durable audit traces, and guardrails.

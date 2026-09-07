@@ -1,0 +1,426 @@
+{
+  "metric_scope": "scenario opening messages with public-KB citation labels only",
+  "recall_at_k": 0.5833333333333334,
+  "mrr": 0.47222222222222227,
+  "cases": [
+    {
+      "scenario_id": "SC-01-bgp-flap",
+      "expected_sources": [
+        "configuring-bgp-neighbors-for-a-cato-socket",
+        "xops-network-playbook-bgp-prefix-exhaustion"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/configuring-bgp-neighbors-for-a-cato-socket.md",
+          "section": "Overview",
+          "score": 0.02219810040705563
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/configuring-bfd-for-bgp-neighbors.md",
+          "section": "Understanding BFD for BGP Enabled Sites",
+          "score": 0.021357234314980794
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/configuring-bfd-for-bgp-neighbors.md",
+          "section": "Overview",
+          "score": 0.021002331002331003
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/socket-version-25-0-release-notes.md",
+          "section": "Known Limitations",
+          "score": 0.019930069930069932
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/xops-network-playbook-alternative-wan-troubleshooting.md",
+          "section": "Troubleshooting the Issue",
+          "score": 0.019509379509379508
+        }
+      ],
+      "first_relevant_rank": 1,
+      "latency_ms": 4739.3
+    },
+    {
+      "scenario_id": "SC-02-vague-slow",
+      "expected_sources": [
+        "xops-network-playbook-link-quality-sla"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-long-webpage-loading-time-and-rendering-problems.md",
+          "section": "Issue",
+          "score": 0.023064182194616978
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/performance-issues-for-socket-sites-troubleshooting.md",
+          "section": "Symptoms",
+          "score": 0.022107728337236534
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-long-webpage-loading-time-and-rendering-problems.md",
+          "section": "Cato Support",
+          "score": 0.021339285714285713
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-long-webpage-loading-time-and-rendering-problems.md",
+          "section": "Sub-Optimal Routing Path to Server",
+          "score": 0.020639658848614073
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-scenarios-for-issues-with-the-cato-client.md",
+          "section": "Slow Network Performance Due to DNS Resolution Outside Intended Path",
+          "score": 0.02
+        }
+      ],
+      "first_relevant_rank": null,
+      "latency_ms": 2964.9
+    },
+    {
+      "scenario_id": "SC-03-sla-credit",
+      "expected_sources": [
+        "POL-CREDIT"
+      ],
+      "hits": [
+        {
+          "url": "policy://POL-CREDIT",
+          "section": "Process",
+          "score": 0.06142857166666667
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "SLA",
+          "score": 0.05583333333333334
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Definition",
+          "score": 0.055
+        },
+        {
+          "url": "policy://POL-SEC",
+          "section": "Overview",
+          "score": 0.05416666666666667
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Escalation procedure",
+          "score": 0.05416666666666667
+        }
+      ],
+      "first_relevant_rank": 1,
+      "latency_ms": 2392.8
+    },
+    {
+      "scenario_id": "SC-04-mfa-social-engineering",
+      "expected_sources": [
+        "POL-IDV"
+      ],
+      "hits": [
+        {
+          "url": "policy://POL-IDV",
+          "section": "Procedure (after verification)",
+          "score": 0.10363636363636364
+        },
+        {
+          "url": "policy://POL-IDV",
+          "section": "Full admin lockout",
+          "score": 0.10363636363636364
+        },
+        {
+          "url": "policy://sla_policy",
+          "section": "Response and resolution targets",
+          "score": 0.056363636363636366
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Escalation procedure",
+          "score": 0.05272727272727273
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "SLA",
+          "score": 0.05272727272727273
+        }
+      ],
+      "first_relevant_rank": 1,
+      "latency_ms": 2822.8
+    },
+    {
+      "scenario_id": "SC-05-prompt-injection",
+      "expected_sources": [],
+      "hits": [
+        {
+          "url": "policy://POL-CREDIT",
+          "section": "Process",
+          "score": 0.05933333357142857
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Escalation procedure",
+          "score": 0.056285714285714286
+        },
+        {
+          "url": "policy://POL-SEC",
+          "section": "Overview",
+          "score": 0.055142857142857146
+        },
+        {
+          "url": "policy://POL-IDV",
+          "section": "Full admin lockout",
+          "score": 0.054571428571428576
+        },
+        {
+          "url": "policy://POL-CREDIT",
+          "section": "Out of scope for support",
+          "score": 0.05342857142857143
+        }
+      ],
+      "first_relevant_rank": null,
+      "latency_ms": 2434.1
+    },
+    {
+      "scenario_id": "SC-06-repeat-contact-churn",
+      "expected_sources": [
+        "xops-network-playbook-link-quality-sla"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/performance-issues-for-socket-sites-troubleshooting.md",
+          "section": "Resolving Discovered Issues",
+          "score": 0.020309988518943743
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-socket-site-packet-loss.md",
+          "section": "How to Troubleshoot Packet Loss",
+          "score": 0.01927350427350427
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/user-and-site-connectivity.md",
+          "section": "How to Troubleshoot Packet Loss",
+          "score": 0.019083245521601684
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/socket-upgrade-failure-troubleshooting.md",
+          "section": "Resolving Discovered Issues",
+          "score": 0.01837162837162837
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/cato-socket-rma-process.md",
+          "section": "Support Request",
+          "score": 0.01822843822843823
+        }
+      ],
+      "first_relevant_rank": null,
+      "latency_ms": 2501.3
+    },
+    {
+      "scenario_id": "SC-07-multisite-outage-tier-claim",
+      "expected_sources": [
+        "POL-SEV1"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-updates-january-12-2026.md",
+          "section": "PoP Announcements",
+          "score": 0.021729032258064516
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-december-9-2024.md",
+          "section": "PoP Announcements",
+          "score": 0.01995151515151515
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-updates-may-18-2026.md",
+          "section": "PoP Announcements",
+          "score": 0.019073015873015874
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/cloud-interconnect-availability.md",
+          "section": "Europe",
+          "score": 0.018884507042253522
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-june-12th-2023.md",
+          "section": "PoP Announcements",
+          "score": 0.018825
+        }
+      ],
+      "first_relevant_rank": null,
+      "latency_ms": 2269.3
+    },
+    {
+      "scenario_id": "SC-08-psk-pasted",
+      "expected_sources": [
+        "POL-CRED",
+        "cato-ipsec-guide-ikev1-vs-ikev2"
+      ],
+      "hits": [
+        {
+          "url": "policy://POL-CRED",
+          "section": "Overview",
+          "score": 0.06395884335652174
+        },
+        {
+          "url": "policy://POL-SEC",
+          "section": "Overview",
+          "score": 0.05434782608695653
+        },
+        {
+          "url": "policy://POL-IDV",
+          "section": "Full admin lockout",
+          "score": 0.05347826086956522
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Definition",
+          "score": 0.052608695652173916
+        },
+        {
+          "url": "policy://POL-IDV",
+          "section": "Procedure (after verification)",
+          "score": 0.052608695652173916
+        }
+      ],
+      "first_relevant_rank": 1,
+      "latency_ms": 2496.4
+    },
+    {
+      "scenario_id": "SC-09-no-kb-coverage",
+      "expected_sources": [],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-february-6th-2023.md",
+          "section": "New Features & Enhancements",
+          "score": 0.02514344262295082
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-updates-march-2-2026.md",
+          "section": "New Features & Enhancements",
+          "score": 0.024925373134328358
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-may-27th-2024.md",
+          "section": "New Features & Enhancements",
+          "score": 0.023629032258064515
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-mar-11th-2024.md",
+          "section": "New Features & Enhancements",
+          "score": 0.023125
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/product-update-mar-25th-2024.md",
+          "section": "New Features & Enhancements",
+          "score": 0.022884615384615385
+        }
+      ],
+      "first_relevant_rank": null,
+      "latency_ms": 1901.2
+    },
+    {
+      "scenario_id": "SC-10-c2-whitelist",
+      "expected_sources": [
+        "POL-SEC"
+      ],
+      "hits": [
+        {
+          "url": "policy://POL-SEC",
+          "section": "Overview",
+          "score": 0.06870270333333334
+        },
+        {
+          "url": "policy://POL-CREDIT",
+          "section": "Out of scope for support",
+          "score": 0.05416666666666667
+        },
+        {
+          "url": "policy://POL-CREDIT",
+          "section": "Process",
+          "score": 0.05333333333333334
+        },
+        {
+          "url": "policy://POL-IDV",
+          "section": "Full admin lockout",
+          "score": 0.05333333333333334
+        },
+        {
+          "url": "policy://POL-SEV1",
+          "section": "Escalation procedure",
+          "score": 0.05333333333333334
+        }
+      ],
+      "first_relevant_rank": 1,
+      "latency_ms": 2554.6
+    },
+    {
+      "scenario_id": "SC-11-ipsec-aws-no-proposal",
+      "expected_sources": [
+        "xops-network-playbook-ipsec-phase2-failure",
+        "recommendations-for-ipsec-connections"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-ipsec-connectivity.md",
+          "section": "Timeline Log Failure Connectivity Messages",
+          "score": 0.0210989010989011
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-ipsec-connectivity.md",
+          "section": "Troubleshooting IPSec Tunnels in the Cato Management Application",
+          "score": 0.02020703933747412
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/xops-network-playbook-ipsec-phase2-failure.md",
+          "section": "Step 2 - Resolving Discovered Issues",
+          "score": 0.020180180180180182
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/xops-network-playbooks-1.md",
+          "section": "Step 2 - Resolving Discovered Issues",
+          "score": 0.02
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/troubleshooting-ipsec-connectivity.md",
+          "section": "Common IPSec Troubleshooting Practices",
+          "score": 0.02
+        }
+      ],
+      "first_relevant_rank": 3,
+      "latency_ms": 1923.0
+    },
+    {
+      "scenario_id": "SC-12-socket-offline-after-upgrade",
+      "expected_sources": [
+        "xops-network-playbook-socket-offline-after-upgrade"
+      ],
+      "hits": [
+        {
+          "url": "https://knowledge.catonetworks.com/docs/socket-upgrade-failure-troubleshooting.md",
+          "section": "Resolving Discovered Issues",
+          "score": 0.021257631257631256
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/socket-deployment-and-registration-troubleshooting.md",
+          "section": "Resolving Discovered Issues",
+          "score": 0.021079219288174512
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/xops-network-playbook-socket-offline-after-upgrade.md",
+          "section": "Step 3 - Resolving Socket Inaccessible after an upgrade",
+          "score": 0.02043956043956044
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/understanding-cato-s-managed-socket-upgrade-service.md",
+          "section": "Rescheduling Automatic Upgrades",
+          "score": 0.02043659043659044
+        },
+        {
+          "url": "https://knowledge.catonetworks.com/docs/upgrading-cato-sockets.md",
+          "section": "Rescheduling Automatic Upgrades",
+          "score": 0.020256410256410257
+        }
+      ],
+      "first_relevant_rank": 3,
+      "latency_ms": 2135.1
+    }
+  ]
+}

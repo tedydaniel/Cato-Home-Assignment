@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any, Literal
+import re
 
 import psycopg
 from langchain.tools import tool
@@ -55,6 +56,49 @@ def _embed_query(query: str) -> list[float]:
     return response.data[0].embedding
 
 
+def _policy_query(query: str) -> str | None:
+    text = query.lower()
+    intents = ((("credit", "refund", "billing", "compensation"), "service credit refund SLA outage"), (("mfa", "identity", "reset", "admin lockout"), "MFA identity verification reset"), (("sev-1", "sev1", "entire account", "multi-site", "outage"), "Sev-1 escalation incident commander"), (("c2", "verdict", "malware", "whitelist"), "security verdict malware C2 override"), (("psk", "secret", "credential", "password"), "credential hygiene pre-shared key secret"))
+    return next((policy for keywords, policy in intents if any(keyword in text for keyword in keywords)), None)
+
+
+def _rerank(query: str, hits: list[KnowledgeHit], limit: int) -> list[KnowledgeHit]:
+    terms = set(re.findall(r"[a-z0-9]{3,}", query.lower()))
+    policy_intent = _policy_query(query)
+    def score(hit: KnowledgeHit) -> float:
+        text = f"{hit.article_title} {hit.section_title} {hit.excerpt}".lower()
+        overlap = sum(term in text for term in terms) / max(1, len(terms))
+        return hit.score + .02 * overlap + (.05 if policy_intent and hit.article_url.startswith("policy://") else 0)
+    return sorted((hit.model_copy(update={"score": score(hit)}) for hit in hits), key=lambda hit: hit.score, reverse=True)[:limit]
+
+
+def _unsupported_product_request(query: str) -> bool:
+    """Requests for unpublished product plans are deliberately out of coverage."""
+    text = query.lower()
+    return any(phrase in text for phrase in (
+        "roadmap", "future feature", "future release", "planned feature", "release date",
+    ))
+
+
+def _has_sufficient_confidence(query: str, hits: list[KnowledgeHit]) -> bool:
+    """Use a conservative, explainable gate before grounding an answer.
+
+    RRF scores are only comparable within this retrieval pipeline.  The initial
+    0.020 threshold was selected from the saved scenario run: weaker results
+    were predominantly broad product-update matches.  A policy intent is
+    permitted because it is a governed, local source selected by intent.
+    """
+    if not hits or _unsupported_product_request(query):
+        return False
+    if _policy_query(query) and any(hit.article_url.startswith("policy://") for hit in hits):
+        return True
+    top = hits[0]
+    query_terms = set(re.findall(r"[a-z0-9]{3,}", query.lower()))
+    hit_terms = set(re.findall(r"[a-z0-9]{3,}", f"{top.article_title} {top.section_title} {top.excerpt}".lower()))
+    lexical_overlap = len(query_terms & hit_terms) / max(1, len(query_terms))
+    return top.score >= get_settings().knowledge_min_score and lexical_overlap >= 0.10
+
+
 def retrieve_knowledge(query: str, limit: int) -> list[KnowledgeHit]:
     """Fuse semantic and lexical rankings from the locally pinned KB corpus."""
     query_vector = vector_literal(_embed_query(query))
@@ -78,19 +122,27 @@ def retrieve_knowledge(query: str, limit: int) -> list[KnowledgeHit]:
                left(c.chunk_text, 1200), fused.score
         FROM fused JOIN kb_chunks c USING (chunk_id)
         JOIN kb_articles a ON a.article_url = c.article_url
-        ORDER BY fused.score DESC LIMIT %s
+        ORDER BY fused.score DESC LIMIT 40
     """
     with psycopg.connect(_database_url(), connect_timeout=5) as connection:
         with connection.cursor() as cursor:
             cursor.execute("SET LOCAL statement_timeout = '5000ms'")
-            cursor.execute(sql, (query_vector, query_vector, query, query, query, limit))
+            cursor.execute(sql, (query_vector, query_vector, query, query, query))
             rows = cursor.fetchall()
-    return [
+        policy = _policy_query(query)
+        if policy:
+            with connection.cursor() as policy_cursor:
+                policy_cursor.execute("""SELECT a.article_title, c.article_url, c.section_title, left(c.chunk_text, 1200), ts_rank_cd(to_tsvector('english', c.chunk_text), websearch_to_tsquery('english', %s)) FROM kb_chunks c JOIN kb_articles a ON a.article_url = c.article_url WHERE c.article_url LIKE 'policy://%%' ORDER BY ts_rank_cd(to_tsvector('english', c.chunk_text), websearch_to_tsquery('english', %s)) DESC LIMIT 8""", (policy, policy))
+                rows.extend(policy_cursor.fetchall())
+    hits = [
         KnowledgeHit(
             article_title=row[0], article_url=row[1], section_title=row[2], excerpt=row[3], score=float(row[4])
         )
         for row in rows
     ]
+    unique = {(hit.article_url, hit.section_title): hit for hit in hits}
+    ranked = _rerank(query, list(unique.values()), limit)
+    return ranked if _has_sufficient_confidence(query, ranked) else []
 
 
 @tool(args_schema=SearchKnowledgeBaseInput)

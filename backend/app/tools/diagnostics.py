@@ -28,8 +28,8 @@ class ClientDiagnostics(BaseModel):
     os: str
     client_version: str
     last_connect_attempt: datetime
-    last_error: str
-    provisioning: Provisioning
+    last_error: str | None = None
+    provisioning: Provisioning | None = None
     network: Network
     user_email: EmailStr
     queried_at: datetime
@@ -128,7 +128,7 @@ def get_client_diagnostics(user_email: EmailStr, runtime: ToolRuntime) -> dict[s
             "captive_portal_detected": diagnostics.network.captive_portal_detected,
             "udp_443_reachable": diagnostics.network.udp_443_reachable,
             "tcp_443_reachable": diagnostics.network.tcp_443_reachable,
-            "scim_status": diagnostics.provisioning.scim_status,
+            "scim_status": diagnostics.provisioning.scim_status if diagnostics.provisioning else None,
         },
         result=diagnostics,
     )
