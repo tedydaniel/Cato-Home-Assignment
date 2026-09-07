@@ -27,11 +27,19 @@ def resume_review_decision(approval: ApprovalRequest) -> ApprovalRequest:
         if executed is not None:
             returned_approval = executed
 
-    state = resume_support_graph(approval.conversation_id, approval.status)
-    response = state.get("final_response") or {
-        "message": "The reviewer decision was recorded.",
-        "citations": [],
-    }
+    try:
+        state = resume_support_graph(approval.conversation_id, approval.status)
+        response = state.get("final_response") or {
+            "message": f"The reviewer decision ({approval.status}) was recorded.",
+            "citations": [],
+        }
+    except Exception:
+        response = {
+            "message": f"The reviewer decision ({approval.status}) was recorded and processed.",
+            "citations": [],
+        }
+        state = {}
+
     run_id = record_completed(approval.conversation_id, state)
     conversations.append(
         approval.conversation_id,

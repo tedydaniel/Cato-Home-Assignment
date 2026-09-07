@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 from app.agents.response.prompts import build_prompt
 from app.config import get_settings
 from app.graph.state import SupportState
+from app.safety.citations import customer_safe_citations
 from app.schemas.handoffs import EvidenceReference, ResponseResult
 
 
@@ -47,10 +48,16 @@ def _default_draft_writer(state: SupportState) -> ResponseDraft:
     settings = get_settings()
     if not settings.openai_api_key:
         raise RuntimeError("OPENAI_API_KEY is not configured.")
+    knowledge = state.get("knowledge_evidence", {})
+    customer_knowledge = {
+        **knowledge,
+        "citations": customer_safe_citations(knowledge.get("citations", [])),
+        "findings": customer_safe_citations(knowledge.get("findings", [])),
+    }
     evidence = {
         "triage": state.get("triage_result", {}),
         "diagnostics": state.get("diagnostic_evidence", {}),
-        "knowledge": state.get("knowledge_evidence", {}),
+        "knowledge": customer_knowledge,
         "action": state.get("action_result", {}),
     }
     result = ChatOpenAI(model=settings.openai_model, api_key=settings.openai_api_key, temperature=0).with_structured_output(ResponseDraft).invoke(build_prompt(evidence=evidence))
@@ -68,7 +75,10 @@ def build_node(*, draft_writer: DraftWriter | None = None) -> Callable[[SupportS
         action = state.get("action_result", {})
         knowledge = state.get("knowledge_evidence", {})
         diagnostics = state.get("diagnostic_evidence", {})
-        citations = [EvidenceReference.model_validate(citation) for citation in knowledge.get("citations", [])]
+        internal_citations = [EvidenceReference.model_validate(citation) for citation in knowledge.get("citations", [])]
+        citations = [EvidenceReference.model_validate(citation) for citation in customer_safe_citations(
+            [citation.model_dump() for citation in internal_citations]
+        )]
         tool_findings = diagnostics.get("findings", [])
         technical_evidence_exists = bool(tool_findings or knowledge.get("findings"))
         credential_redacted = any("[REDACTED]" in message.get("content", "") for message in state["messages"] if message.get("role") == "user")

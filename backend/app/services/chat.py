@@ -11,6 +11,7 @@ from app.graph.checkpoints import application_graph
 from app.repositories import conversations
 from app.repositories import traces
 from app.schemas.conversations import ChatTurn, ConversationView
+from app.safety.citations import customer_safe_citations
 from app.safety.prompt_injection import detect_prompt_injection
 from app.safety.redaction import redact_secrets
 
@@ -64,7 +65,7 @@ def send_message(conversation_id: UUID, content: str, *, trace_tags: list[str] |
             "message": "I submitted this request for human review. You can continue this conversation while it is pending.",
             "citation_evidence_ids": [],
             "tool_evidence_ids": [],
-            "citations": state.get("knowledge_evidence", {}).get("citations", []),
+            "citations": customer_safe_citations(state.get("knowledge_evidence", {}).get("citations", [])),
         }
         updated = conversations.append(
             conversation_id,
